@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="l10n_ir_orcest_enterprise.BusinessIntelligence">
+        <div class="o_orcest_dashboard">
+            <div class="dashboard-header">
+                <h1>هوش تجاری اورکست</h1>
+                <div class="period-selector">
+                    <button class="btn btn-sm" t-att-class="state.reportType === 'revenue' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onReportTypeChange('revenue')">درآمد</button>
+                    <button class="btn btn-sm" t-att-class="state.reportType === 'expense' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onReportTypeChange('expense')">هزینه</button>
+                    <button class="btn btn-sm" t-att-class="state.reportType === 'profitability' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onReportTypeChange('profitability')">سودآوری</button>
+                    <button class="btn btn-sm" t-att-class="state.reportType === 'kpi' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onReportTypeChange('kpi')">KPI</button>
+                </div>
+            </div>
+
+            <t t-if="state.loading">
+                <div class="o_orcest_loading">
+                    <div class="spinner"/>
+                </div>
+            </t>
+
+            <t t-else="">
+                <!-- خلاصه -->
+                <t t-if="state.summary">
+                    <div class="kpi-cards">
+                        <t t-foreach="Object.entries(state.summary)" t-as="entry" t-key="entry[0]">
+                            <div class="kpi-card">
+                                <div class="kpi-label"><t t-out="entry[0]"/></div>
+                                <div class="kpi-value"><t t-out="formatNumber(entry[1])"/></div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- جدول داده -->
+                <t t-if="state.data.length">
+                    <div class="kpi-summary">
+                        <h3>جزئیات گزارش</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>دوره</th>
+                                    <th>مبلغ</th>
+                                    <th>تغییر</th>
+                                    <th>وضعیت</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="state.data" t-as="row" t-key="row.period">
+                                    <tr>
+                                        <td><t t-out="row.period"/></td>
+                                        <td><t t-out="formatNumber(row.amount)"/></td>
+                                        <td>
+                                            <span t-att-class="row.change >= 0 ? 'text-success' : 'text-danger'">
+                                                <t t-out="row.change"/>٪
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span t-att-class="getStatusClass(row.status)">
+                                                <t t-out="row.status_label || row.status"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+                <t t-if="!state.data.length">
+                    <div class="text-center text-muted p-5">
+                        <i class="fa fa-bar-chart fa-3x mb-3"/>
+                        <p>داده‌ای برای نمایش وجود ندارد</p>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+
+</templates>

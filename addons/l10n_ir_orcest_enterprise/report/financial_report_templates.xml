@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- قالب چاپ گزارش مالی -->
+    <template id="report_financial_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" dir="rtl" style="font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;">
+                        <div class="text-center" style="margin-bottom: 20px;">
+                            <h2>
+                                <t t-if="doc.report_type == 'income_statement'">صورت سود و زیان</t>
+                                <t t-if="doc.report_type == 'balance_sheet'">ترازنامه</t>
+                                <t t-if="doc.report_type == 'cash_flow'">صورت جریان وجوه نقد</t>
+                                <t t-if="doc.report_type == 'ebitda'">تحلیل EBITDA</t>
+                                <t t-if="doc.report_type == 'cost_analysis'">تحلیل بهای تمام‌شده</t>
+                                <t t-if="doc.report_type == 'ratio_analysis'">نسبت‌های مالی</t>
+                                <t t-if="doc.report_type == 'breakeven'">تحلیل نقطه سربه‌سر</t>
+                                <t t-if="doc.report_type == 'consolidated'">صورت‌های مالی تلفیقی</t>
+                            </h2>
+                            <h3><t t-out="doc.name"/></h3>
+                            <p>دوره: <t t-out="doc.jalali_period"/></p>
+                            <p>شرکت: <t t-out="doc.company_id.name"/></p>
+                        </div>
+
+                        <!-- صورت سود و زیان -->
+                        <t t-if="doc.report_type in ('income_statement', 'ebitda')">
+                            <table class="table table-bordered" style="direction: rtl;">
+                                <thead>
+                                    <tr style="background-color: #2c3e50; color: white;">
+                                        <th style="text-align: right;">شرح</th>
+                                        <th style="text-align: left;">مبلغ (ریال)</th>
+                                        <th style="text-align: left;">درصد از درآمد</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>درآمد کل</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.total_revenue)"/></td>
+                                        <td style="text-align: left;">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>درآمد خالص</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.net_revenue)"/></td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.net_revenue / doc.total_revenue * 100 if doc.total_revenue else 0)"/></td>
+                                    </tr>
+                                    <tr style="border-top: 2px solid #333;">
+                                        <td><strong>بهای تمام‌شده</strong></td>
+                                        <td style="text-align: left;"><strong>(<t t-out="'{:,.0f}'.format(doc.total_cogs)"/>)</strong></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 30px;">مواد مستقیم</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.direct_material)"/></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 30px;">دستمزد مستقیم</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.direct_labor)"/></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-right: 30px;">سربار تولید</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.manufacturing_overhead)"/></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #ecf0f1;">
+                                        <td><strong>سود ناخالص</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.gross_profit)"/></strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:.1f}%'.format(doc.gross_margin)"/></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>هزینه‌های اداری و عمومی</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.admin_expenses)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>هزینه‌های فروش و توزیع</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.selling_expenses)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>هزینه‌های تحقیق و توسعه</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.rd_expenses)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #d5f5e3;">
+                                        <td><strong>EBITDA</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.ebitda)"/></strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:.1f}%'.format(doc.ebitda_margin)"/></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>استهلاک</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.depreciation)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>استهلاک دارایی نامشهود</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.amortization)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #ecf0f1;">
+                                        <td><strong>EBIT (سود عملیاتی)</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.ebit)"/></strong></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>هزینه مالی</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.interest_expense)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>مالیات</td>
+                                        <td style="text-align: left;">(<t t-out="'{:,.0f}'.format(doc.tax_expense)"/>)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>سود/زیان تسعیر ارز</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.fx_gain_loss)"/></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #abebc6; font-size: 1.1em;">
+                                        <td><strong>سود خالص</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.net_income)"/></strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:.1f}%'.format(doc.net_margin)"/></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- ترازنامه -->
+                        <t t-if="doc.report_type == 'balance_sheet'">
+                            <table class="table table-bordered" style="direction: rtl;">
+                                <thead>
+                                    <tr style="background-color: #2c3e50; color: white;">
+                                        <th style="text-align: right;">شرح</th>
+                                        <th style="text-align: left;">مبلغ (ریال)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #eaf2f8;">
+                                        <td colspan="2"><strong>دارایی‌ها</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>دارایی‌های جاری</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.current_assets)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>دارایی‌های غیرجاری</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.non_current_assets)"/></td>
+                                    </tr>
+                                    <tr style="background-color: #d5f5e3;">
+                                        <td><strong>جمع دارایی‌ها</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.total_assets)"/></strong></td>
+                                    </tr>
+                                    <tr style="background-color: #eaf2f8;">
+                                        <td colspan="2"><strong>بدهی‌ها</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>بدهی‌های جاری</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.current_liabilities)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>بدهی‌های غیرجاری</td>
+                                        <td style="text-align: left;"><t t-out="'{:,.0f}'.format(doc.non_current_liabilities)"/></td>
+                                    </tr>
+                                    <tr style="background-color: #fadbd8;">
+                                        <td><strong>جمع بدهی‌ها</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.total_liabilities)"/></strong></td>
+                                    </tr>
+                                    <tr style="background-color: #d5f5e3;">
+                                        <td><strong>حقوق صاحبان سهام</strong></td>
+                                        <td style="text-align: left;"><strong><t t-out="'{:,.0f}'.format(doc.total_equity)"/></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- نسبت‌های مالی -->
+                        <t t-if="doc.report_type == 'ratio_analysis'">
+                            <table class="table table-bordered" style="direction: rtl;">
+                                <thead>
+                                    <tr style="background-color: #2c3e50; color: white;">
+                                        <th style="text-align: right;">نسبت مالی</th>
+                                        <th style="text-align: left;">مقدار</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>نسبت جاری</td>
+                                        <td style="text-align: left;"><t t-out="'{:.2f}'.format(doc.current_ratio)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>نسبت آنی</td>
+                                        <td style="text-align: left;"><t t-out="'{:.2f}'.format(doc.quick_ratio)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>نسبت بدهی به حقوق صاحبان سهام</td>
+                                        <td style="text-align: left;"><t t-out="'{:.2f}'.format(doc.debt_to_equity)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>بازده حقوق صاحبان سهام (ROE)</td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.roe)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>بازده دارایی‌ها (ROA)</td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.roa)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>حاشیه سود ناخالص</td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.gross_margin)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>حاشیه EBITDA</td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.ebitda_margin)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>حاشیه سود خالص</td>
+                                        <td style="text-align: left;"><t t-out="'{:.1f}%'.format(doc.net_margin)"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- تاریخ تهیه -->
+                        <div style="margin-top: 30px; text-align: center; font-size: 0.9em; color: #666;">
+                            <p>این گزارش توسط سامانه اورکست اینترپرایز تهیه شده است.</p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_financial" model="ir.actions.report">
+        <field name="name">گزارش مالی</field>
+        <field name="model">orcest.financial.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ir_orcest_enterprise.report_financial_document</field>
+        <field name="report_file">l10n_ir_orcest_enterprise.report_financial_document</field>
+        <field name="binding_model_id" ref="model_orcest_financial_report"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

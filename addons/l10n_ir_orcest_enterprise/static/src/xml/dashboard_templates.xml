@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="l10n_ir_orcest_enterprise.ExecutiveDashboard">
+        <div class="o_orcest_dashboard">
+            <!-- هدر -->
+            <div class="dashboard-header">
+                <h1>داشبورد مدیریتی اورکست</h1>
+                <div class="period-selector">
+                    <button class="btn btn-sm" t-att-class="state.period === 'current_month' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onPeriodChange('current_month')">ماه جاری</button>
+                    <button class="btn btn-sm" t-att-class="state.period === 'current_quarter' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onPeriodChange('current_quarter')">فصل جاری</button>
+                    <button class="btn btn-sm" t-att-class="state.period === 'current_year' ? 'btn-primary' : 'btn-outline-primary'" t-on-click="() => this.onPeriodChange('current_year')">سال جاری</button>
+                </div>
+            </div>
+
+            <!-- بارگذاری -->
+            <t t-if="state.loading">
+                <div class="o_orcest_loading">
+                    <div class="spinner"/>
+                </div>
+            </t>
+
+            <t t-else="">
+                <!-- کارت‌های KPI -->
+                <div class="kpi-cards">
+                    <div class="kpi-card" t-on-click="openFinancialReports">
+                        <div class="kpi-icon revenue"><i class="fa fa-money"/></div>
+                        <div class="kpi-label">درآمد کل</div>
+                        <div class="kpi-value"><t t-out="formatCurrency(state.data.revenue)"/> ریال</div>
+                        <div t-att-class="'kpi-change ' + getChangeClass(state.data.revenue_change)">
+                            <i t-att-class="'fa ' + getChangeIcon(state.data.revenue_change)"/>
+                            <t t-out="formatPercent(state.data.revenue_change)"/>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon expense"><i class="fa fa-credit-card"/></div>
+                        <div class="kpi-label">هزینه‌ها</div>
+                        <div class="kpi-value"><t t-out="formatCurrency(state.data.expenses)"/> ریال</div>
+                        <div t-att-class="'kpi-change ' + getChangeClass(-1 * (state.data.expense_change || 0))">
+                            <i t-att-class="'fa ' + getChangeIcon(state.data.expense_change)"/>
+                            <t t-out="formatPercent(state.data.expense_change)"/>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon profit"><i class="fa fa-line-chart"/></div>
+                        <div class="kpi-label">سود خالص</div>
+                        <div class="kpi-value"><t t-out="formatCurrency(state.data.profit)"/> ریال</div>
+                        <div t-att-class="'kpi-change ' + getChangeClass(state.data.profit_change)">
+                            <i t-att-class="'fa ' + getChangeIcon(state.data.profit_change)"/>
+                            <t t-out="formatPercent(state.data.profit_change)"/>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon employees"><i class="fa fa-users"/></div>
+                        <div class="kpi-label">تعداد کارمندان</div>
+                        <div class="kpi-value"><t t-out="state.data.employee_count || '۰'"/></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon leads"><i class="fa fa-bullseye"/></div>
+                        <div class="kpi-label">سرنخ‌های فعال</div>
+                        <div class="kpi-value"><t t-out="state.data.active_leads || '۰'"/></div>
+                    </div>
+
+                    <div class="kpi-card" t-on-click="openKPIs">
+                        <div class="kpi-icon projects"><i class="fa fa-tasks"/></div>
+                        <div class="kpi-label">پروژه‌های فعال</div>
+                        <div class="kpi-value"><t t-out="state.data.active_projects || '۰'"/></div>
+                    </div>
+                </div>
+
+                <!-- جدول KPI -->
+                <t t-if="state.data.kpi_summary and state.data.kpi_summary.length">
+                    <div class="kpi-summary">
+                        <h3>شاخص‌های کلیدی عملکرد</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>شاخص</th>
+                                    <th>هدف</th>
+                                    <th>عملکرد</th>
+                                    <th>تحقق</th>
+                                    <th>وضعیت</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="state.data.kpi_summary" t-as="kpi" t-key="kpi.name">
+                                    <tr>
+                                        <td><t t-out="kpi.name"/></td>
+                                        <td><t t-out="kpi.target"/></td>
+                                        <td><t t-out="kpi.actual"/></td>
+                                        <td><t t-out="kpi.achievement"/>٪</td>
+                                        <td>
+                                            <span t-att-class="'badge ' + (kpi.status === 'excellent' ? 'bg-success' : kpi.status === 'good' ? 'bg-info' : kpi.status === 'warning' ? 'bg-warning' : 'bg-danger')">
+                                                <t t-out="kpi.status_label"/>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+                <!-- دوره شمسی -->
+                <t t-if="state.data.jalali_period">
+                    <div class="text-center text-muted mt-3" style="font-size: 0.85rem;">
+                        دوره: <t t-out="state.data.jalali_period"/>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+
+</templates>

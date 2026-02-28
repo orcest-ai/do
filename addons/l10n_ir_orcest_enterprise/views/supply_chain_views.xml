@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم پیش‌بینی تقاضا -->
+    <record id="view_demand_forecast_form" model="ir.ui.view">
+        <field name="name">orcest.demand.forecast.form</field>
+        <field name="model">orcest.demand.forecast</field>
+        <field name="arch" type="xml">
+            <form string="پیش‌بینی تقاضا" dir="rtl">
+                <header>
+                    <button name="action_ai_forecast" string="پیش‌بینی هوشمند" type="object" class="btn-warning"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="اطلاعات محصول">
+                            <field name="product_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="forecast_date"/>
+                            <field name="jalali_period"/>
+                        </group>
+                        <group string="پارامترهای پیش‌بینی">
+                            <field name="period_type"/>
+                            <field name="method"/>
+                            <field name="confidence" widget="badge" decoration-success="confidence == 'high'" decoration-warning="confidence == 'medium'" decoration-danger="confidence == 'low'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="مقادیر">
+                            <field name="forecast_qty"/>
+                            <field name="actual_qty"/>
+                        </group>
+                        <group string="تحلیل">
+                            <field name="variance"/>
+                            <field name="accuracy" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_demand_forecast_list" model="ir.ui.view">
+        <field name="name">orcest.demand.forecast.list</field>
+        <field name="model">orcest.demand.forecast</field>
+        <field name="arch" type="xml">
+            <list string="پیش‌بینی تقاضا" dir="rtl">
+                <field name="product_id"/>
+                <field name="jalali_period"/>
+                <field name="period_type"/>
+                <field name="method"/>
+                <field name="forecast_qty"/>
+                <field name="actual_qty"/>
+                <field name="variance"/>
+                <field name="accuracy" widget="progressbar"/>
+                <field name="confidence" widget="badge" decoration-success="confidence == 'high'" decoration-warning="confidence == 'medium'" decoration-danger="confidence == 'low'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_demand_forecast" model="ir.actions.act_window">
+        <field name="name">پیش‌بینی تقاضا</field>
+        <field name="res_model">orcest.demand.forecast</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- فرم ارزیابی تأمین‌کننده -->
+    <record id="view_supplier_rating_form" model="ir.ui.view">
+        <field name="name">orcest.supplier.rating.form</field>
+        <field name="model">orcest.supplier.rating</field>
+        <field name="arch" type="xml">
+            <form string="ارزیابی تأمین‌کننده" dir="rtl">
+                <sheet>
+                    <group>
+                        <group string="اطلاعات ارزیابی">
+                            <field name="partner_id"/>
+                            <field name="evaluation_date"/>
+                            <field name="evaluator_id"/>
+                        </group>
+                        <group string="نتیجه">
+                            <field name="overall_score" widget="gauge" options="{'max_value': 100}"/>
+                            <field name="rating" widget="badge" decoration-success="rating == 'A'" decoration-info="rating == 'B'" decoration-warning="rating == 'C'" decoration-danger="rating == 'D'"/>
+                        </group>
+                    </group>
+                    <group string="معیارهای ارزیابی">
+                        <group>
+                            <field name="quality_score" widget="progressbar"/>
+                            <field name="delivery_score" widget="progressbar"/>
+                            <field name="price_score" widget="progressbar"/>
+                        </group>
+                        <group>
+                            <field name="communication_score" widget="progressbar"/>
+                            <field name="flexibility_score" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_supplier_rating_list" model="ir.ui.view">
+        <field name="name">orcest.supplier.rating.list</field>
+        <field name="model">orcest.supplier.rating</field>
+        <field name="arch" type="xml">
+            <list string="ارزیابی تأمین‌کنندگان" dir="rtl">
+                <field name="partner_id"/>
+                <field name="evaluation_date"/>
+                <field name="quality_score"/>
+                <field name="delivery_score"/>
+                <field name="price_score"/>
+                <field name="overall_score"/>
+                <field name="rating" widget="badge" decoration-success="rating == 'A'" decoration-info="rating == 'B'" decoration-warning="rating == 'C'" decoration-danger="rating == 'D'"/>
+                <field name="evaluator_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_supplier_rating" model="ir.actions.act_window">
+        <field name="name">ارزیابی تأمین‌کنندگان</field>
+        <field name="res_model">orcest.supplier.rating</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

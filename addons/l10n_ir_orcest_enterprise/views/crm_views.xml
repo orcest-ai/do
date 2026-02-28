@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم سرنخ CRM - ارث‌بری -->
+    <record id="view_crm_lead_form_enterprise" model="ir.ui.view">
+        <field name="name">crm.lead.form.enterprise</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_ai_score" string="امتیازدهی هوشمند" type="object" class="btn-warning"/>
+                </header>
+            </xpath>
+            <xpath expr="//group" position="after">
+                <group string="اطلاعات ایرانی و هوش مصنوعی" dir="rtl">
+                    <group string="هوش مصنوعی">
+                        <field name="l10n_ir_ai_score" widget="gauge" options="{'max_value': 100}"/>
+                        <field name="l10n_ir_ai_priority" widget="badge" decoration-danger="l10n_ir_ai_priority == 'hot'" decoration-warning="l10n_ir_ai_priority == 'warm'" decoration-info="l10n_ir_ai_priority == 'cold'"/>
+                        <field name="l10n_ir_ai_score_date"/>
+                        <field name="l10n_ir_conversion_probability" widget="progressbar"/>
+                        <field name="l10n_ir_days_in_stage"/>
+                    </group>
+                    <group string="اطلاعات تکمیلی">
+                        <field name="l10n_ir_industry"/>
+                        <field name="l10n_ir_deal_currency_id"/>
+                        <field name="l10n_ir_budget_range"/>
+                        <field name="l10n_ir_decision_maker"/>
+                        <field name="l10n_ir_competitor"/>
+                        <field name="l10n_ir_source_detail"/>
+                    </group>
+                </group>
+                <group string="تاریخ‌های شمسی" dir="rtl">
+                    <field name="l10n_ir_jalali_create_date"/>
+                    <field name="l10n_ir_expected_close_jalali"/>
+                </group>
+                <group string="تحلیل هوش مصنوعی" invisible="not l10n_ir_ai_insights" dir="rtl">
+                    <field name="l10n_ir_ai_insights" nolabel="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- لیست سرنخ CRM - ارث‌بری -->
+    <record id="view_crm_lead_list_enterprise" model="ir.ui.view">
+        <field name="name">crm.lead.list.enterprise</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="l10n_ir_ai_score"/>
+                <field name="l10n_ir_ai_priority" widget="badge" decoration-danger="l10n_ir_ai_priority == 'hot'" decoration-warning="l10n_ir_ai_priority == 'warm'" optional="show"/>
+                <field name="l10n_ir_industry" optional="hide"/>
+                <field name="l10n_ir_jalali_create_date" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

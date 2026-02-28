@@ -1,0 +1,342 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_ir_orcest_enterprise
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: Orcest AI <info@orcest.ai>\n"
+"Language-Team: Persian <fa@orcest.ai>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: l10n_ir_orcest_enterprise
+#: model:ir.module.module,name:l10n_ir_orcest_enterprise.module_l10n_ir_orcest_enterprise
+msgid "Orcest Enterprise - Advanced Multinational"
+msgstr "اورکست اینترپرایز - نسخه پیشرفته چند ملیتی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Executive Dashboard"
+msgstr "داشبورد مدیریتی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Financial Reports"
+msgstr "گزارش‌های مالی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Income Statement"
+msgstr "صورت سود و زیان"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Balance Sheet"
+msgstr "ترازنامه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Cash Flow Statement"
+msgstr "صورت جریان وجوه نقد"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "EBITDA Analysis"
+msgstr "تحلیل EBITDA"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Cost Analysis"
+msgstr "تحلیل بهای تمام‌شده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Financial Ratios"
+msgstr "نسبت‌های مالی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Breakeven Analysis"
+msgstr "تحلیل نقطه سربه‌سر"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Consolidated Statements"
+msgstr "صورت‌های مالی تلفیقی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Total Revenue"
+msgstr "درآمد کل"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Net Revenue"
+msgstr "درآمد خالص"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Export Revenue"
+msgstr "درآمد صادراتی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Cost of Goods Sold"
+msgstr "بهای تمام‌شده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Direct Material"
+msgstr "مواد مستقیم"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Direct Labor"
+msgstr "دستمزد مستقیم"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Manufacturing Overhead"
+msgstr "سربار تولید"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Gross Profit"
+msgstr "سود ناخالص"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Operating Expenses"
+msgstr "هزینه‌های عملیاتی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Depreciation"
+msgstr "استهلاک"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Net Income"
+msgstr "سود خالص"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Current Ratio"
+msgstr "نسبت جاری"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Quick Ratio"
+msgstr "نسبت آنی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Debt to Equity"
+msgstr "نسبت بدهی به حقوق صاحبان سهام"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Return on Equity"
+msgstr "بازده حقوق صاحبان سهام"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Return on Assets"
+msgstr "بازده دارایی‌ها"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Budget"
+msgstr "بودجه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Budget Category"
+msgstr "گروه بودجه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Budget Line"
+msgstr "اقلام بودجه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Variance"
+msgstr "انحراف"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Consumption"
+msgstr "مصرف"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Payslip"
+msgstr "فیش حقوقی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Base Salary"
+msgstr "حقوق پایه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Housing Allowance"
+msgstr "حق مسکن"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Food Allowance"
+msgstr "حق خواربار"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Children Allowance"
+msgstr "حق اولاد"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Transportation Allowance"
+msgstr "حق ایاب و ذهاب"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Overtime"
+msgstr "اضافه‌کاری"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Social Security"
+msgstr "تأمین اجتماعی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Income Tax"
+msgstr "مالیات بر درآمد"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Net Salary"
+msgstr "خالص حقوق"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "KPI"
+msgstr "شاخص کلیدی عملکرد"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "OKR"
+msgstr "اهداف و نتایج کلیدی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Key Result"
+msgstr "نتیجه کلیدی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Demand Forecast"
+msgstr "پیش‌بینی تقاضا"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Supplier Rating"
+msgstr "ارزیابی تأمین‌کننده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Audit Log"
+msgstr "مسیر حسابرسی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Document"
+msgstr "سند"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Compliance Checklist"
+msgstr "چک‌لیست انطباق"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "API Key"
+msgstr "کلید API"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "API Log"
+msgstr "لاگ API"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Security Policy"
+msgstr "سیاست امنیتی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Consolidation Group"
+msgstr "گروه تلفیقی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Consolidation Report"
+msgstr "گزارش تلفیقی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Transfer Pricing"
+msgstr "قیمت‌گذاری انتقالی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Project Risk"
+msgstr "ریسک پروژه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "AI Score"
+msgstr "امتیاز هوش مصنوعی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "AI Analysis"
+msgstr "تحلیل هوش مصنوعی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Generate Report"
+msgstr "تولید گزارش"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "AI Analyze"
+msgstr "تحلیل با هوش مصنوعی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Submit"
+msgstr "ارسال"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Approve"
+msgstr "تأیید"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Revise"
+msgstr "بازنگری"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Close"
+msgstr "بستن"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Draft"
+msgstr "پیش‌نویس"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Generated"
+msgstr "تولید شده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Reviewed"
+msgstr "بررسی شده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Approved"
+msgstr "تأیید شده"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Compute"
+msgstr "محاسبه"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Confirm"
+msgstr "تأیید"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Pay"
+msgstr "پرداخت"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Cancel"
+msgstr "لغو"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Payroll Structure"
+msgstr "ساختار حقوقی"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "AI Lead Scoring"
+msgstr "امتیازدهی هوشمند سرنخ"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Business Intelligence"
+msgstr "هوش تجاری"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Error in AI analysis: %s"
+msgstr "خطا در تحلیل هوش مصنوعی: %s"
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Invalid API key."
+msgstr "کلید API نامعتبر است."
+
+#. module: l10n_ir_orcest_enterprise
+msgid "API key expired."
+msgstr "کلید API منقضی شده است."
+
+#. module: l10n_ir_orcest_enterprise
+msgid "Access denied from this IP."
+msgstr "دسترسی از این IP مجاز نیست."
+
+#. module: l10n_ir_orcest_enterprise
+msgid "No subsidiaries defined."
+msgstr "هیچ شرکت تابعه‌ای تعریف نشده است."

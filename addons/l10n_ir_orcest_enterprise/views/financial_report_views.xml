@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم گزارش مالی -->
+    <record id="view_financial_report_form" model="ir.ui.view">
+        <field name="name">orcest.financial.report.form</field>
+        <field name="model">orcest.financial.report</field>
+        <field name="arch" type="xml">
+            <form string="گزارش مالی" dir="rtl">
+                <header>
+                    <button name="action_generate" string="تولید گزارش" type="object" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_ai_analyze" string="تحلیل هوش مصنوعی" type="object" invisible="state == 'draft'" class="btn-warning"/>
+                    <button name="%(l10n_ir_orcest_enterprise.action_financial_report_wizard)d" string="گزارش جدید" type="action" class="btn-secondary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="اطلاعات گزارش">
+                            <field name="report_type"/>
+                            <field name="company_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="jalali_period"/>
+                        </group>
+                        <group string="شرکت‌های مشمول" invisible="report_type != 'consolidated'">
+                            <field name="company_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="درآمد و بهای تمام‌شده">
+                            <group>
+                                <group string="درآمدها">
+                                    <field name="total_revenue"/>
+                                    <field name="net_revenue"/>
+                                    <field name="export_revenue"/>
+                                </group>
+                                <group string="بهای تمام‌شده">
+                                    <field name="total_cogs"/>
+                                    <field name="direct_material"/>
+                                    <field name="direct_labor"/>
+                                    <field name="manufacturing_overhead"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="سود ناخالص">
+                                    <field name="gross_profit"/>
+                                    <field name="gross_margin" widget="percentage"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="هزینه‌ها و EBITDA">
+                            <group>
+                                <group string="هزینه‌های عملیاتی">
+                                    <field name="admin_expenses"/>
+                                    <field name="selling_expenses"/>
+                                    <field name="rd_expenses"/>
+                                    <field name="total_opex"/>
+                                </group>
+                                <group string="EBITDA و سود خالص">
+                                    <field name="depreciation"/>
+                                    <field name="amortization"/>
+                                    <field name="interest_expense"/>
+                                    <field name="tax_expense"/>
+                                    <field name="fx_gain_loss"/>
+                                    <field name="ebitda" class="oe_subtotal_footer_separator"/>
+                                    <field name="ebitda_margin" widget="percentage"/>
+                                    <field name="ebit"/>
+                                    <field name="net_income" class="oe_subtotal_footer_separator"/>
+                                    <field name="net_margin" widget="percentage"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="ترازنامه">
+                            <group>
+                                <group string="دارایی‌ها">
+                                    <field name="current_assets"/>
+                                    <field name="non_current_assets"/>
+                                    <field name="total_assets" class="oe_subtotal_footer_separator"/>
+                                </group>
+                                <group string="بدهی‌ها و حقوق صاحبان سهام">
+                                    <field name="current_liabilities"/>
+                                    <field name="non_current_liabilities"/>
+                                    <field name="total_liabilities"/>
+                                    <field name="total_equity" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="نسبت‌های مالی">
+                            <group>
+                                <group string="نسبت‌های نقدینگی">
+                                    <field name="current_ratio"/>
+                                    <field name="quick_ratio"/>
+                                </group>
+                                <group string="نسبت‌های سودآوری و اهرم">
+                                    <field name="debt_to_equity"/>
+                                    <field name="roe" widget="percentage"/>
+                                    <field name="roa" widget="percentage"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="تحلیل هوش مصنوعی" invisible="not ai_analysis">
+                            <group>
+                                <field name="ai_analysis" nolabel="1"/>
+                                <field name="ai_recommendations" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="اقلام تفصیلی">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="line_type"/>
+                                    <field name="account_code"/>
+                                    <field name="name"/>
+                                    <field name="amount"/>
+                                    <field name="amount_previous"/>
+                                    <field name="change_percent" widget="percentage"/>
+                                    <field name="indent_level"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="یادداشت‌ها">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_financial_report_list" model="ir.ui.view">
+        <field name="name">orcest.financial.report.list</field>
+        <field name="model">orcest.financial.report</field>
+        <field name="arch" type="xml">
+            <list string="گزارش‌های مالی" dir="rtl">
+                <field name="name"/>
+                <field name="report_type"/>
+                <field name="jalali_period"/>
+                <field name="net_revenue"/>
+                <field name="ebitda"/>
+                <field name="net_income"/>
+                <field name="net_margin"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'generated'" decoration-success="state in ('reviewed', 'approved')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_financial_report" model="ir.actions.act_window">
+        <field name="name">گزارش‌های مالی</field>
+        <field name="res_model">orcest.financial.report</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ویزارد گزارش مالی -->
+    <record id="view_financial_report_wizard_form" model="ir.ui.view">
+        <field name="name">orcest.financial.report.wizard.form</field>
+        <field name="model">orcest.financial.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="ایجاد گزارش مالی" dir="rtl">
+                <group>
+                    <group>
+                        <field name="report_type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="company_ids" widget="many2many_tags" invisible="report_type != 'consolidated'"/>
+                        <field name="auto_generate"/>
+                        <field name="include_ai_analysis"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_generate_report" string="تولید گزارش" type="object" class="btn-primary"/>
+                    <button string="انصراف" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_financial_report_wizard" model="ir.actions.act_window">
+        <field name="name">ایجاد گزارش مالی</field>
+        <field name="res_model">orcest.financial.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

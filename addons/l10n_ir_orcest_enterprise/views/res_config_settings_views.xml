@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_enterprise" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.enterprise</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="اورکست اینترپرایز" string="اورکست اینترپرایز" data-key="l10n_ir_orcest_enterprise">
+                    <block title="ماژول‌های سازمانی" name="enterprise_modules">
+                        <setting string="حقوق و دستمزد" help="فعال‌سازی ماژول حقوق و دستمزد مطابق قانون کار ایران">
+                            <field name="orcest_enable_payroll"/>
+                        </setting>
+                        <setting string="مدیریت بودجه" help="بودجه‌بندی پیشرفته با تحلیل انحراف و پیش‌بینی هوشمند">
+                            <field name="orcest_enable_budget"/>
+                        </setting>
+                        <setting string="هوش تجاری (BI)" help="داشبورد مدیریتی و تحلیل‌های پیشرفته">
+                            <field name="orcest_enable_bi"/>
+                        </setting>
+                        <setting string="صورت‌های مالی تلفیقی" help="تلفیق صورت‌های مالی شرکت‌های تابعه">
+                            <field name="orcest_enable_consolidation"/>
+                        </setting>
+                        <setting string="قیمت‌گذاری انتقالی" help="مدیریت معاملات بین‌شرکتی و قیمت‌گذاری انتقالی">
+                            <field name="orcest_enable_transfer_pricing"/>
+                        </setting>
+                        <setting string="CRM هوشمند" help="امتیازدهی هوشمند سرنخ‌ها و تحلیل خط لوله فروش">
+                            <field name="orcest_enable_crm_ai"/>
+                        </setting>
+                        <setting string="زنجیره تأمین" help="پیش‌بینی تقاضا و ارزیابی تأمین‌کنندگان">
+                            <field name="orcest_enable_supply_chain"/>
+                        </setting>
+                    </block>
+                    <block title="انطباق و امنیت" name="compliance_security">
+                        <setting string="انطباق و حاکمیت" help="مسیر حسابرسی، مدیریت اسناد و چک‌لیست انطباق">
+                            <field name="orcest_enable_compliance"/>
+                        </setting>
+                        <setting string="دروازه API سازمانی" help="مدیریت کلیدهای API و کنترل دسترسی">
+                            <field name="orcest_enable_api_gateway"/>
+                        </setting>
+                        <setting string="مسیر حسابرسی" help="ثبت خودکار تمامی عملیات حساس">
+                            <field name="orcest_audit_trail"/>
+                        </setting>
+                        <setting string="نگهداری داده" help="تعداد روزهای نگهداری داده‌ها (پیش‌فرض: ۱۰ سال)">
+                            <field name="orcest_data_retention_days"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

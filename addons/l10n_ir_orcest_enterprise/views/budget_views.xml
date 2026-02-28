@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم بودجه -->
+    <record id="view_budget_form" model="ir.ui.view">
+        <field name="name">orcest.budget.form</field>
+        <field name="model">orcest.budget</field>
+        <field name="arch" type="xml">
+            <form string="بودجه" dir="rtl">
+                <header>
+                    <button name="action_submit" string="ارسال" type="object" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_approve" string="تأیید" type="object" invisible="state != 'submitted'" class="btn-primary"/>
+                    <button name="action_revise" string="بازنگری" type="object" invisible="state not in ('approved', 'submitted')" class="btn-warning"/>
+                    <button name="action_update_actuals" string="بروزرسانی عملکرد" type="object" invisible="state != 'approved'" class="btn-secondary"/>
+                    <button name="action_close" string="بستن" type="object" invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="اطلاعات بودجه">
+                            <field name="fiscal_year"/>
+                            <field name="jalali_year"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group string="سازمانی">
+                            <field name="company_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="department_id"/>
+                        </group>
+                    </group>
+                    <group string="خلاصه بودجه">
+                        <group>
+                            <field name="total_budget_income"/>
+                            <field name="total_actual_income"/>
+                        </group>
+                        <group>
+                            <field name="total_budget_expense"/>
+                            <field name="total_actual_expense"/>
+                        </group>
+                        <group>
+                            <field name="variance"/>
+                            <field name="variance_percent" widget="percentage"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="اقلام بودجه">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="category_id"/>
+                                    <field name="account_id"/>
+                                    <field name="name"/>
+                                    <field name="m1"/>
+                                    <field name="m2"/>
+                                    <field name="m3"/>
+                                    <field name="m4"/>
+                                    <field name="m5"/>
+                                    <field name="m6"/>
+                                    <field name="m7"/>
+                                    <field name="m8"/>
+                                    <field name="m9"/>
+                                    <field name="m10"/>
+                                    <field name="m11"/>
+                                    <field name="m12"/>
+                                    <field name="budget_amount" sum="جمع بودجه"/>
+                                    <field name="actual_amount" sum="جمع عملکرد"/>
+                                    <field name="variance"/>
+                                    <field name="variance_percent"/>
+                                    <field name="consumption_percent" widget="progressbar"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="یادداشت‌ها">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_budget_list" model="ir.ui.view">
+        <field name="name">orcest.budget.list</field>
+        <field name="model">orcest.budget</field>
+        <field name="arch" type="xml">
+            <list string="بودجه‌ها" dir="rtl">
+                <field name="name"/>
+                <field name="jalali_year"/>
+                <field name="department_id"/>
+                <field name="total_budget_income"/>
+                <field name="total_budget_expense"/>
+                <field name="variance"/>
+                <field name="variance_percent"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'submitted'" decoration-success="state == 'approved'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- فرم دسته‌بندی بودجه -->
+    <record id="view_budget_category_form" model="ir.ui.view">
+        <field name="name">orcest.budget.category.form</field>
+        <field name="model">orcest.budget.category</field>
+        <field name="arch" type="xml">
+            <form string="گروه بودجه" dir="rtl">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="category_type"/>
+                        <field name="parent_id"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_budget_category_list" model="ir.ui.view">
+        <field name="name">orcest.budget.category.list</field>
+        <field name="model">orcest.budget.category</field>
+        <field name="arch" type="xml">
+            <list string="گروه‌های بودجه" dir="rtl">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category_type"/>
+                <field name="parent_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_budget" model="ir.actions.act_window">
+        <field name="name">بودجه‌ها</field>
+        <field name="res_model">orcest.budget</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_budget_category" model="ir.actions.act_window">
+        <field name="name">گروه‌های بودجه</field>
+        <field name="res_model">orcest.budget.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ویزارد ایجاد بودجه -->
+    <record id="view_budget_create_wizard_form" model="ir.ui.view">
+        <field name="name">orcest.budget.create.wizard.form</field>
+        <field name="model">orcest.budget.create.wizard</field>
+        <field name="arch" type="xml">
+            <form string="ایجاد بودجه جدید" dir="rtl">
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="jalali_year"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="department_id"/>
+                        <field name="copy_from_id"/>
+                        <field name="adjustment_percent" invisible="not copy_from_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_create_budget" string="ایجاد بودجه" type="object" class="btn-primary"/>
+                    <button string="انصراف" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_budget_create_wizard" model="ir.actions.act_window">
+        <field name="name">ایجاد بودجه جدید</field>
+        <field name="res_model">orcest.budget.create.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

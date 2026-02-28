@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- منوی اصلی اورکست اینترپرایز -->
+    <menuitem id="menu_orcest_enterprise_root"
+        name="اورکست اینترپرایز"
+        web_icon="l10n_ir_orcest_enterprise,static/description/icon.png"
+        sequence="5"/>
+
+    <!-- === داشبورد مدیریتی === -->
+    <menuitem id="menu_dashboard"
+        name="داشبورد مدیریتی"
+        parent="menu_orcest_enterprise_root"
+        action="action_executive_dashboard"
+        sequence="1"/>
+
+    <!-- === مالی و حسابداری === -->
+    <menuitem id="menu_finance"
+        name="مالی و حسابداری"
+        parent="menu_orcest_enterprise_root"
+        sequence="10"/>
+
+    <menuitem id="menu_financial_reports"
+        name="گزارش‌های مالی"
+        parent="menu_finance"
+        action="action_financial_report"
+        sequence="1"/>
+
+    <menuitem id="menu_budget"
+        name="بودجه‌ها"
+        parent="menu_finance"
+        action="action_budget"
+        sequence="2"/>
+
+    <menuitem id="menu_budget_categories"
+        name="گروه‌های بودجه"
+        parent="menu_finance"
+        action="action_budget_category"
+        sequence="3"/>
+
+    <menuitem id="menu_budget_wizard"
+        name="ایجاد بودجه جدید"
+        parent="menu_finance"
+        action="action_budget_create_wizard"
+        sequence="4"/>
+
+    <menuitem id="menu_consolidation"
+        name="صورت‌های مالی تلفیقی"
+        parent="menu_finance"
+        sequence="10"/>
+
+    <menuitem id="menu_consolidation_groups"
+        name="گروه‌های تلفیقی"
+        parent="menu_consolidation"
+        action="action_consolidation_group"
+        sequence="1"/>
+
+    <menuitem id="menu_consolidation_reports"
+        name="گزارش‌های تلفیقی"
+        parent="menu_consolidation"
+        action="action_consolidation_report"
+        sequence="2"/>
+
+    <menuitem id="menu_transfer_pricing"
+        name="قیمت‌گذاری انتقالی"
+        parent="menu_finance"
+        action="action_transfer_pricing"
+        sequence="15"/>
+
+    <!-- === منابع انسانی === -->
+    <menuitem id="menu_hr_enterprise"
+        name="منابع انسانی"
+        parent="menu_orcest_enterprise_root"
+        sequence="20"/>
+
+    <menuitem id="menu_payslip"
+        name="فیش‌های حقوقی"
+        parent="menu_hr_enterprise"
+        action="action_payslip"
+        sequence="1"/>
+
+    <menuitem id="menu_payroll_structure"
+        name="ساختارهای حقوقی"
+        parent="menu_hr_enterprise"
+        action="action_payroll_structure"
+        sequence="2"/>
+
+    <!-- === عملکرد و KPI === -->
+    <menuitem id="menu_performance"
+        name="عملکرد سازمانی"
+        parent="menu_orcest_enterprise_root"
+        sequence="30"/>
+
+    <menuitem id="menu_kpi"
+        name="شاخص‌های عملکرد (KPI)"
+        parent="menu_performance"
+        action="action_kpi"
+        sequence="1"/>
+
+    <menuitem id="menu_kpi_values"
+        name="مقادیر شاخص‌ها"
+        parent="menu_performance"
+        action="action_kpi_value"
+        sequence="2"/>
+
+    <menuitem id="menu_okr"
+        name="اهداف و نتایج کلیدی (OKR)"
+        parent="menu_performance"
+        action="action_okr"
+        sequence="3"/>
+
+    <!-- === زنجیره تأمین === -->
+    <menuitem id="menu_supply_chain"
+        name="زنجیره تأمین"
+        parent="menu_orcest_enterprise_root"
+        sequence="40"/>
+
+    <menuitem id="menu_demand_forecast"
+        name="پیش‌بینی تقاضا"
+        parent="menu_supply_chain"
+        action="action_demand_forecast"
+        sequence="1"/>
+
+    <menuitem id="menu_supplier_rating"
+        name="ارزیابی تأمین‌کنندگان"
+        parent="menu_supply_chain"
+        action="action_supplier_rating"
+        sequence="2"/>
+
+    <!-- === پروژه === -->
+    <menuitem id="menu_project_enterprise"
+        name="مدیریت پروژه"
+        parent="menu_orcest_enterprise_root"
+        sequence="50"/>
+
+    <menuitem id="menu_project_risks"
+        name="ریسک‌های پروژه"
+        parent="menu_project_enterprise"
+        action="action_project_risk"
+        sequence="1"/>
+
+    <!-- === انطباق و حاکمیت === -->
+    <menuitem id="menu_compliance"
+        name="انطباق و حاکمیت"
+        parent="menu_orcest_enterprise_root"
+        sequence="60"/>
+
+    <menuitem id="menu_audit_log"
+        name="مسیر حسابرسی"
+        parent="menu_compliance"
+        action="action_audit_log"
+        sequence="1"/>
+
+    <menuitem id="menu_documents"
+        name="اسناد دیجیتال"
+        parent="menu_compliance"
+        action="action_document"
+        sequence="2"/>
+
+    <menuitem id="menu_compliance_checklist"
+        name="چک‌لیست انطباق"
+        parent="menu_compliance"
+        action="action_compliance_checklist"
+        sequence="3"/>
+
+    <!-- === امنیت === -->
+    <menuitem id="menu_security"
+        name="امنیت"
+        parent="menu_orcest_enterprise_root"
+        sequence="70"/>
+
+    <menuitem id="menu_api_keys"
+        name="کلیدهای API"
+        parent="menu_security"
+        action="action_api_key"
+        sequence="1"/>
+
+    <menuitem id="menu_api_logs"
+        name="لاگ دسترسی API"
+        parent="menu_security"
+        action="action_api_log"
+        sequence="2"/>
+
+    <menuitem id="menu_security_policies"
+        name="سیاست‌های امنیتی"
+        parent="menu_security"
+        action="action_security_policy"
+        sequence="3"/>
+
+    <!-- === KPI/OKR/Consolidation/Transfer Pricing Actions === -->
+    <record id="action_kpi" model="ir.actions.act_window">
+        <field name="name">شاخص‌های عملکرد</field>
+        <field name="res_model">orcest.kpi</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_kpi_value" model="ir.actions.act_window">
+        <field name="name">مقادیر شاخص‌ها</field>
+        <field name="res_model">orcest.kpi.value</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_okr" model="ir.actions.act_window">
+        <field name="name">اهداف و نتایج کلیدی</field>
+        <field name="res_model">orcest.okr</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_consolidation_group" model="ir.actions.act_window">
+        <field name="name">گروه‌های تلفیقی</field>
+        <field name="res_model">orcest.consolidation.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_consolidation_report" model="ir.actions.act_window">
+        <field name="name">گزارش‌های تلفیقی</field>
+        <field name="res_model">orcest.consolidation.report</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_transfer_pricing" model="ir.actions.act_window">
+        <field name="name">قیمت‌گذاری انتقالی</field>
+        <field name="res_model">orcest.transfer.pricing</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- KPI Views -->
+    <record id="view_kpi_form" model="ir.ui.view">
+        <field name="name">orcest.kpi.form</field>
+        <field name="model">orcest.kpi</field>
+        <field name="arch" type="xml">
+            <form string="شاخص عملکرد" dir="rtl">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <field name="unit"/>
+                            <field name="direction"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="formula"/>
+                    </group>
+                    <field name="value_ids">
+                        <list editable="bottom">
+                            <field name="date"/>
+                            <field name="period"/>
+                            <field name="jalali_period"/>
+                            <field name="target_value"/>
+                            <field name="actual_value"/>
+                            <field name="achievement_percent" widget="progressbar"/>
+                            <field name="status" widget="badge" decoration-success="status == 'excellent'" decoration-info="status == 'good'" decoration-warning="status == 'warning'" decoration-danger="status == 'critical'"/>
+                            <field name="department_id"/>
+                            <field name="notes"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_kpi_list" model="ir.ui.view">
+        <field name="name">orcest.kpi.list</field>
+        <field name="model">orcest.kpi</field>
+        <field name="arch" type="xml">
+            <list string="شاخص‌های عملکرد" dir="rtl">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="unit"/>
+                <field name="direction"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- KPI Value Views -->
+    <record id="view_kpi_value_list" model="ir.ui.view">
+        <field name="name">orcest.kpi.value.list</field>
+        <field name="model">orcest.kpi.value</field>
+        <field name="arch" type="xml">
+            <list string="مقادیر شاخص‌ها" dir="rtl">
+                <field name="kpi_id"/>
+                <field name="jalali_period"/>
+                <field name="period"/>
+                <field name="target_value"/>
+                <field name="actual_value"/>
+                <field name="achievement_percent" widget="progressbar"/>
+                <field name="status" widget="badge" decoration-success="status == 'excellent'" decoration-info="status == 'good'" decoration-warning="status == 'warning'" decoration-danger="status == 'critical'"/>
+                <field name="department_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- OKR Views -->
+    <record id="view_okr_form" model="ir.ui.view">
+        <field name="name">orcest.okr.form</field>
+        <field name="model">orcest.okr</field>
+        <field name="arch" type="xml">
+            <form string="هدف سازمانی (OKR)" dir="rtl">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="period"/>
+                            <field name="responsible_id"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <field name="key_result_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="target_value"/>
+                            <field name="current_value"/>
+                            <field name="unit"/>
+                            <field name="progress" widget="progressbar"/>
+                            <field name="responsible_id"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_okr_list" model="ir.ui.view">
+        <field name="name">orcest.okr.list</field>
+        <field name="model">orcest.okr</field>
+        <field name="arch" type="xml">
+            <list string="اهداف سازمانی" dir="rtl">
+                <field name="name"/>
+                <field name="period"/>
+                <field name="responsible_id"/>
+                <field name="department_id"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state in ('active', 'completed')"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Consolidation Views -->
+    <record id="view_consolidation_group_form" model="ir.ui.view">
+        <field name="name">orcest.consolidation.group.form</field>
+        <field name="model">orcest.consolidation.group</field>
+        <field name="arch" type="xml">
+            <form string="گروه تلفیقی" dir="rtl">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="parent_company_id"/>
+                            <field name="consolidation_currency_id"/>
+                        </group>
+                        <group>
+                            <field name="elimination_journal_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="subsidiary_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_consolidation_report_form" model="ir.ui.view">
+        <field name="name">orcest.consolidation.report.form</field>
+        <field name="model">orcest.consolidation.report</field>
+        <field name="arch" type="xml">
+            <form string="گزارش تلفیقی" dir="rtl">
+                <header>
+                    <button name="action_generate" string="تولید گزارش" type="object" invisible="state != 'draft'" class="btn-primary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="group_id"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="jalali_period"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="صورت سود و زیان تلفیقی">
+                            <group>
+                                <group>
+                                    <field name="consolidated_revenue"/>
+                                    <field name="intercompany_revenue_eliminated"/>
+                                    <field name="consolidated_cogs"/>
+                                    <field name="consolidated_gross_profit" class="oe_subtotal_footer_separator"/>
+                                </group>
+                                <group>
+                                    <field name="consolidated_opex"/>
+                                    <field name="consolidated_ebitda" class="oe_subtotal_footer_separator"/>
+                                    <field name="consolidated_net_income" class="oe_subtotal_footer_separator"/>
+                                    <field name="fx_translation_adjustment"/>
+                                    <field name="minority_interest"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="ترازنامه تلفیقی">
+                            <group>
+                                <group>
+                                    <field name="consolidated_total_assets"/>
+                                    <field name="goodwill"/>
+                                </group>
+                                <group>
+                                    <field name="consolidated_total_liabilities"/>
+                                    <field name="consolidated_equity"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="اقلام تفصیلی">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="sequence"/>
+                                    <field name="company_id"/>
+                                    <field name="account_group"/>
+                                    <field name="name"/>
+                                    <field name="original_amount"/>
+                                    <field name="original_currency_id"/>
+                                    <field name="converted_amount"/>
+                                    <field name="elimination_amount"/>
+                                    <field name="consolidated_amount"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="یادداشت‌ها">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Transfer Pricing Views -->
+    <record id="view_transfer_pricing_form" model="ir.ui.view">
+        <field name="name">orcest.transfer.pricing.form</field>
+        <field name="model">orcest.transfer.pricing</field>
+        <field name="arch" type="xml">
+            <form string="قیمت‌گذاری انتقالی" dir="rtl">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="طرفین معامله">
+                            <field name="seller_company_id"/>
+                            <field name="buyer_company_id"/>
+                            <field name="transaction_date"/>
+                            <field name="jalali_date"/>
+                        </group>
+                        <group string="جزئیات معامله">
+                            <field name="transaction_type"/>
+                            <field name="pricing_method"/>
+                            <field name="currency_id"/>
+                            <field name="amount"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="تحلیل قیمت منصفانه">
+                            <field name="arm_length_amount"/>
+                            <field name="variance"/>
+                            <field name="variance_percent" widget="percentage"/>
+                            <field name="is_compliant" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="مستندات">
+                            <group>
+                                <field name="description"/>
+                                <field name="economic_analysis"/>
+                                <field name="comparability_analysis"/>
+                                <field name="compliance_notes"/>
+                            </group>
+                            <group>
+                                <field name="supporting_docs" widget="many2many_binary"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_transfer_pricing_list" model="ir.ui.view">
+        <field name="name">orcest.transfer.pricing.list</field>
+        <field name="model">orcest.transfer.pricing</field>
+        <field name="arch" type="xml">
+            <list string="قیمت‌گذاری انتقالی" dir="rtl">
+                <field name="name"/>
+                <field name="jalali_date"/>
+                <field name="seller_company_id"/>
+                <field name="buyer_company_id"/>
+                <field name="transaction_type"/>
+                <field name="amount"/>
+                <field name="variance_percent"/>
+                <field name="is_compliant" widget="boolean_toggle"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم پروژه - ارث‌بری -->
+    <record id="view_project_form_enterprise" model="ir.ui.view">
+        <field name="name">project.project.form.enterprise</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page string="اطلاعات سازمانی اورکست" dir="rtl">
+                        <group>
+                            <group string="بودجه پروژه">
+                                <field name="l10n_ir_budget_planned"/>
+                                <field name="l10n_ir_budget_spent"/>
+                                <field name="l10n_ir_budget_remaining"/>
+                                <field name="l10n_ir_budget_percent" widget="progressbar"/>
+                            </group>
+                            <group string="وضعیت سلامت">
+                                <field name="l10n_ir_health_score" widget="gauge" options="{'max_value': 100}"/>
+                                <field name="l10n_ir_health_status" widget="badge" decoration-success="l10n_ir_health_status == 'on_track'" decoration-warning="l10n_ir_health_status == 'at_risk'" decoration-danger="l10n_ir_health_status == 'off_track'"/>
+                                <field name="l10n_ir_risk_level" widget="badge" decoration-success="l10n_ir_risk_level == 'low'" decoration-warning="l10n_ir_risk_level == 'medium'" decoration-danger="l10n_ir_risk_level in ('high', 'critical')"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="تاریخ‌های شمسی">
+                                <field name="l10n_ir_start_date_jalali"/>
+                                <field name="l10n_ir_end_date_jalali"/>
+                            </group>
+                            <group string="منابع">
+                                <field name="l10n_ir_team_size"/>
+                                <field name="l10n_ir_total_hours_planned"/>
+                                <field name="l10n_ir_total_hours_logged"/>
+                            </group>
+                        </group>
+                        <group string="ریسک‌های پروژه">
+                            <field name="l10n_ir_risk_ids" nolabel="1">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="probability"/>
+                                    <field name="impact"/>
+                                    <field name="risk_score"/>
+                                    <field name="risk_level" widget="badge" decoration-success="risk_level == 'low'" decoration-warning="risk_level == 'medium'" decoration-danger="risk_level in ('high', 'critical')"/>
+                                    <field name="owner_id"/>
+                                    <field name="status"/>
+                                    <field name="mitigation_plan"/>
+                                </list>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- فرم وظیفه - ارث‌بری -->
+    <record id="view_task_form_enterprise" model="ir.ui.view">
+        <field name="name">project.task.form.enterprise</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <group string="اطلاعات سازمانی" dir="rtl">
+                    <group>
+                        <field name="l10n_ir_jalali_deadline"/>
+                        <field name="l10n_ir_priority_score"/>
+                    </group>
+                    <group>
+                        <field name="l10n_ir_estimated_cost"/>
+                        <field name="l10n_ir_actual_cost"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- فرم ریسک پروژه -->
+    <record id="view_project_risk_form" model="ir.ui.view">
+        <field name="name">orcest.project.risk.form</field>
+        <field name="model">orcest.project.risk</field>
+        <field name="arch" type="xml">
+            <form string="ریسک پروژه" dir="rtl">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="owner_id"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="probability"/>
+                            <field name="impact"/>
+                            <field name="risk_score"/>
+                            <field name="risk_level" widget="badge"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="mitigation_plan"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_project_risk_list" model="ir.ui.view">
+        <field name="name">orcest.project.risk.list</field>
+        <field name="model">orcest.project.risk</field>
+        <field name="arch" type="xml">
+            <list string="ریسک‌های پروژه" dir="rtl">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="probability"/>
+                <field name="impact"/>
+                <field name="risk_score"/>
+                <field name="risk_level" widget="badge" decoration-success="risk_level == 'low'" decoration-warning="risk_level == 'medium'" decoration-danger="risk_level in ('high', 'critical')"/>
+                <field name="owner_id"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_project_risk" model="ir.actions.act_window">
+        <field name="name">ریسک‌های پروژه</field>
+        <field name="res_model">orcest.project.risk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

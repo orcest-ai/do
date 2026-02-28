@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فرم فیش حقوقی -->
+    <record id="view_payslip_form" model="ir.ui.view">
+        <field name="name">orcest.payslip.form</field>
+        <field name="model">orcest.payslip</field>
+        <field name="arch" type="xml">
+            <form string="فیش حقوقی" dir="rtl">
+                <header>
+                    <button name="action_compute" string="محاسبه" type="object" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_confirm" string="تأیید" type="object" invisible="state != 'computed'" class="btn-primary"/>
+                    <button name="action_pay" string="پرداخت" type="object" invisible="state != 'confirmed'" class="btn-success"/>
+                    <button name="action_cancel" string="لغو" type="object" invisible="state in ('paid', 'cancelled')"/>
+                    <button name="action_draft" string="بازگشت به پیش‌نویس" type="object" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="اطلاعات کارمند">
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="jalali_period"/>
+                        </group>
+                        <group string="ساعات کار">
+                            <field name="working_days"/>
+                            <field name="overtime_hours"/>
+                            <field name="night_shift_hours"/>
+                            <field name="holiday_work_hours"/>
+                            <field name="absent_days"/>
+                            <field name="sick_days"/>
+                            <field name="leave_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="مزایا">
+                            <group>
+                                <group>
+                                    <field name="base_salary"/>
+                                    <field name="housing_allowance"/>
+                                    <field name="food_allowance"/>
+                                    <field name="children_allowance"/>
+                                    <field name="transportation_allowance"/>
+                                    <field name="spouse_allowance"/>
+                                    <field name="seniority_bonus"/>
+                                </group>
+                                <group>
+                                    <field name="overtime_amount"/>
+                                    <field name="night_shift_amount"/>
+                                    <field name="holiday_work_amount"/>
+                                    <field name="mission_allowance"/>
+                                    <field name="hardship_allowance"/>
+                                    <field name="other_benefits"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="کسورات و خالص">
+                            <group>
+                                <group string="محاسبات">
+                                    <field name="gross_salary"/>
+                                    <field name="taxable_income"/>
+                                </group>
+                                <group string="کسورات">
+                                    <field name="social_security_employee"/>
+                                    <field name="income_tax"/>
+                                    <field name="loan_deduction"/>
+                                    <field name="other_deductions"/>
+                                    <field name="total_deductions"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="خالص پرداختی">
+                                    <field name="net_salary" class="oe_subtotal_footer_separator"/>
+                                </group>
+                                <group string="هزینه کارفرما">
+                                    <field name="social_security_employer"/>
+                                    <field name="severance_provision"/>
+                                    <field name="bonus_provision"/>
+                                    <field name="employer_total_cost" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="اقلام تفصیلی">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="line_type"/>
+                                    <field name="amount"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_payslip_list" model="ir.ui.view">
+        <field name="name">orcest.payslip.list</field>
+        <field name="model">orcest.payslip</field>
+        <field name="arch" type="xml">
+            <list string="فیش‌های حقوقی" dir="rtl">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="jalali_period"/>
+                <field name="gross_salary"/>
+                <field name="total_deductions"/>
+                <field name="net_salary"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'computed'" decoration-success="state in ('confirmed', 'paid')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_payslip" model="ir.actions.act_window">
+        <field name="name">فیش‌های حقوقی</field>
+        <field name="res_model">orcest.payslip</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_payroll_structure" model="ir.actions.act_window">
+        <field name="name">ساختارهای حقوقی</field>
+        <field name="res_model">orcest.payroll.structure</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
