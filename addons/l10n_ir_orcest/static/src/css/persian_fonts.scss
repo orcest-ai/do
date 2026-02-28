@@ -1,0 +1,62 @@
+/**
+ * فونت‌های فارسی و تنظیمات تایپوگرافی
+ * Persian fonts and typography settings for do.orcest.ai
+ */
+
+// Import Vazirmatn font from CDN (most popular Persian web font)
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+// Persian language specific styles
+.o_lang_fa,
+html[lang="fa"],
+html[lang="fa-IR"],
+body.o_rtl {
+    // Set Vazirmatn as primary font for Persian
+    font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+
+    // Improve Persian text rendering
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1;
+
+    // Persian-specific line height
+    line-height: 1.8;
+
+    // All input fields
+    input, textarea, select, .form-control {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+    }
+
+    // Headings
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+        font-weight: 700;
+    }
+
+    // Override monospace for Persian
+    code, pre, .o_technical_modal {
+        font-family: 'Vazirmatn', 'Courier New', monospace !important;
+    }
+
+    // Button text
+    .btn, button {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+    }
+
+    // Dropdown menus
+    .dropdown-menu {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+    }
+
+    // Table cells
+    table td, table th {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+    }
+
+    // Modal and dialog
+    .modal, .o_dialog {
+        font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', 'Arial', sans-serif !important;
+    }
+}

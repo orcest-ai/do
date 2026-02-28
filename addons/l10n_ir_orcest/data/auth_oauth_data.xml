@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--
+            SSO سازمانی اورکست (login.orcest.ai)
+            Orcest Organizational SSO Provider
+        -->
+        <record id="provider_orcest_sso" model="auth.oauth.provider">
+            <field name="name">ورود با حساب اورکست (SSO سازمانی)</field>
+            <field name="auth_endpoint">https://login.orcest.ai/oauth2/authorize</field>
+            <field name="scope">openid profile email</field>
+            <field name="validation_endpoint">https://login.orcest.ai/oauth2/userinfo</field>
+            <field name="data_endpoint">https://login.orcest.ai/oauth2/userinfo</field>
+            <field name="client_id">do-orcest</field>
+            <field name="css_class">o_auth_oauth_provider_icon o_orcest_provider</field>
+            <field name="body">ورود با حساب سازمانی اورکست</field>
+            <field name="enabled" eval="True"/>
+            <field name="sequence">1</field>
+        </record>
+
+    </data>
+</odoo>

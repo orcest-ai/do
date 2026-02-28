@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- قالب وب‌کلاینت با برندینگ اورکست -->
+    <template id="webclient_template_inherit" inherit_id="web.webclient_bootstrap" name="Orcest Webclient">
+        <xpath expr="//head" position="inside">
+            <!-- Iranian timezone meta -->
+            <meta name="timezone" content="Asia/Tehran"/>
+            <!-- RTL direction -->
+            <meta name="direction" content="rtl"/>
+        </xpath>
+    </template>
+
+    <!-- صفحه لاگین سفارشی با SSO اورکست -->
+    <template id="login_template_inherit" inherit_id="web.login" name="Orcest Login">
+        <xpath expr="//div[hasclass('card-body')]" position="before">
+            <div class="text-center mb-3" dir="rtl">
+                <h4 class="text-primary">سامانه مدیریت یکپارچه اورکست</h4>
+                <p class="text-muted small">do.orcest.ai</p>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

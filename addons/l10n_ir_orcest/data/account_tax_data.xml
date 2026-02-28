@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--
+            مالیات‌های استاندارد ایران
+            Iranian Standard Taxes
+        -->
+
+        <!-- مالیات بر ارزش افزوده (VAT) - ۱۰% -->
+        <record id="tax_vat_sale_10" model="account.tax.template">
+            <field name="name">ارزش افزوده فروش ۱۰٪</field>
+            <field name="type_tax_use">sale</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">ارزش افزوده ۱۰٪</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+        <record id="tax_vat_purchase_10" model="account.tax.template">
+            <field name="name">ارزش افزوده خرید ۱۰٪</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">ارزش افزوده خرید ۱۰٪</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+        <!-- عوارض شهرداری - ۳% -->
+        <record id="tax_municipal_sale_3" model="account.tax.template">
+            <field name="name">عوارض شهرداری فروش ۳٪</field>
+            <field name="type_tax_use">sale</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">3</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">عوارض ۳٪</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+        <!-- معاف از مالیات -->
+        <record id="tax_exempt_sale" model="account.tax.template">
+            <field name="name">معاف از مالیات (فروش)</field>
+            <field name="type_tax_use">sale</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">معاف</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+        <record id="tax_exempt_purchase" model="account.tax.template">
+            <field name="name">معاف از مالیات (خرید)</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">معاف</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+        <!-- مالیات بر درآمد - صادرات (معاف) -->
+        <record id="tax_export_exempt" model="account.tax.template">
+            <field name="name">صادرات - معاف از ارزش افزوده</field>
+            <field name="type_tax_use">sale</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+            <field name="description">صادرات معاف</field>
+            <field name="tax_group_id" ref="account.tax_group_taxes"/>
+        </record>
+
+    </data>
+</odoo>

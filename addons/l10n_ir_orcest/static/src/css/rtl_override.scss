@@ -1,0 +1,317 @@
+/**
+ * بازنویسی سبک‌های راست‌چین (RTL) برای بومی‌سازی کامل فارسی
+ * RTL style overrides for complete Persian localization in do.orcest.ai
+ */
+
+// RTL direction for Persian
+.o_lang_fa,
+html[lang="fa"],
+html[lang="fa-IR"],
+body.o_rtl {
+    direction: rtl !important;
+    text-align: right !important;
+
+    // ==========================================
+    // Navbar & Header
+    // ==========================================
+    .o_main_navbar {
+        direction: rtl;
+
+        .o_menu_brand {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .o_menu_sections {
+            direction: rtl;
+            > .dropdown {
+                > .dropdown-menu {
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+
+        // User menu on the left side in RTL
+        .o_user_menu {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+
+    // ==========================================
+    // Sidebar & Navigation
+    // ==========================================
+    .o_action_manager {
+        direction: rtl;
+    }
+
+    .o_cp_left {
+        float: right;
+    }
+
+    .o_cp_right {
+        float: left;
+    }
+
+    // ==========================================
+    // Form View
+    // ==========================================
+    .o_form_view {
+        direction: rtl;
+
+        .o_form_label {
+            text-align: right;
+        }
+
+        .o_inner_group {
+            .o_td_label {
+                text-align: right;
+                padding-left: 8px;
+                padding-right: 0;
+            }
+        }
+
+        // Status bar
+        .o_statusbar_status {
+            direction: rtl;
+            float: left;
+
+            .o_arrow_button {
+                &::before, &::after {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+
+        // Chatter
+        .o_FormRenderer_chatterContainer {
+            border-right: 1px solid #dee2e6;
+            border-left: none;
+        }
+    }
+
+    // ==========================================
+    // List View
+    // ==========================================
+    .o_list_view {
+        direction: rtl;
+
+        th, td {
+            text-align: right;
+
+            &.o_list_number {
+                text-align: left; // Numbers stay LTR
+            }
+        }
+
+        // Sort icons
+        .o_column_sortable {
+            .o_sort_icon {
+                float: left;
+            }
+        }
+
+        // Checkbox column
+        .o_list_record_selector {
+            text-align: center;
+        }
+    }
+
+    // ==========================================
+    // Kanban View
+    // ==========================================
+    .o_kanban_view {
+        direction: rtl;
+
+        .o_kanban_group {
+            direction: rtl;
+        }
+
+        .o_kanban_record {
+            direction: rtl;
+            text-align: right;
+        }
+    }
+
+    // ==========================================
+    // Calendar View
+    // ==========================================
+    .o_calendar_view {
+        direction: rtl;
+
+        .fc {
+            direction: rtl;
+        }
+    }
+
+    // ==========================================
+    // Date Time Picker
+    // ==========================================
+    .o_datetime_picker {
+        direction: rtl;
+
+        .o_datetime_picker_header {
+            direction: rtl;
+
+            .o_previous {
+                order: 3;
+            }
+            .o_datetime_picker_title {
+                order: 2;
+            }
+            .o_next {
+                order: 1;
+            }
+        }
+
+        table {
+            direction: rtl;
+        }
+    }
+
+    // ==========================================
+    // Search & Filters
+    // ==========================================
+    .o_searchview {
+        direction: rtl;
+
+        .o_searchview_input_container {
+            direction: rtl;
+        }
+
+        .o_searchview_facet {
+            direction: rtl;
+        }
+    }
+
+    // ==========================================
+    // Breadcrumbs
+    // ==========================================
+    .o_breadcrumb {
+        direction: rtl;
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "\\";
+            float: right;
+            padding-left: 0.5rem;
+            padding-right: 0;
+        }
+    }
+
+    // ==========================================
+    // Sidebar/Control Panel
+    // ==========================================
+    .o_control_panel {
+        direction: rtl;
+
+        .o_cp_action_menus {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+
+    // ==========================================
+    // Dialog & Modals
+    // ==========================================
+    .modal {
+        direction: rtl;
+
+        .modal-header {
+            .btn-close {
+                margin: -0.5rem auto -0.5rem -0.5rem;
+            }
+        }
+    }
+
+    // ==========================================
+    // Buttons & Actions
+    // ==========================================
+    .btn-group {
+        direction: rtl;
+    }
+
+    // ==========================================
+    // Tooltips & Popovers
+    // ==========================================
+    .tooltip, .popover {
+        direction: rtl;
+        text-align: right;
+    }
+
+    // ==========================================
+    // Accounting specific
+    // ==========================================
+    .o_account_reports_page {
+        direction: rtl;
+
+        .o_account_report_amount {
+            text-align: left;
+            direction: ltr;
+        }
+    }
+
+    // ==========================================
+    // Dropdown menus
+    // ==========================================
+    .dropdown-menu {
+        text-align: right;
+
+        .dropdown-item {
+            text-align: right;
+
+            .fa, .oi {
+                margin-left: 8px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    // ==========================================
+    // Icons - flip directional icons
+    // ==========================================
+    .fa-chevron-left::before { content: "\f054"; } // chevron-right
+    .fa-chevron-right::before { content: "\f053"; } // chevron-left
+    .fa-arrow-left::before { content: "\f061"; } // arrow-right
+    .fa-arrow-right::before { content: "\f060"; } // arrow-left
+    .fa-angle-left::before { content: "\f105"; } // angle-right
+    .fa-angle-right::before { content: "\f104"; } // angle-left
+    .fa-caret-left::before { content: "\f0da"; } // caret-right
+    .fa-caret-right::before { content: "\f0d9"; } // caret-left
+
+    // ==========================================
+    // Numbers & Currency (keep LTR)
+    // ==========================================
+    .o_monetary,
+    .o_list_number,
+    .oe_currency_value,
+    input[type="number"] {
+        direction: ltr;
+        text-align: left;
+    }
+
+    // ==========================================
+    // Padding & Margin overrides
+    // ==========================================
+    .ms-1 { margin-right: 0.25rem !important; margin-left: 0 !important; }
+    .ms-2 { margin-right: 0.5rem !important; margin-left: 0 !important; }
+    .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+    .me-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
+    .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
+    .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+
+    .ps-1 { padding-right: 0.25rem !important; padding-left: 0 !important; }
+    .ps-2 { padding-right: 0.5rem !important; padding-left: 0 !important; }
+    .ps-3 { padding-right: 1rem !important; padding-left: 0 !important; }
+    .pe-1 { padding-left: 0.25rem !important; padding-right: 0 !important; }
+    .pe-2 { padding-left: 0.5rem !important; padding-right: 0 !important; }
+    .pe-3 { padding-left: 1rem !important; padding-right: 0 !important; }
+
+    // ==========================================
+    // Orcest Branding
+    // ==========================================
+    .o_main_navbar .o_menu_brand::before {
+        content: "سامانه اورکست";
+        font-weight: bold;
+    }
+}

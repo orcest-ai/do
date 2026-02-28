@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- نمای فرم فاکتور با فیلدهای ایرانی -->
+    <record id="view_move_form_inherit_l10n_ir" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.l10n_ir_orcest</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_date']" position="after">
+                <field name="l10n_ir_jalali_date" string="تاریخ شمسی" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_date_due']" position="after">
+                <field name="l10n_ir_jalali_due_date" string="سررسید شمسی" readonly="1"/>
+            </xpath>
+            <xpath expr="//group[@name='header_right_group']" position="inside">
+                <field name="l10n_ir_invoice_serial" string="سریال فاکتور"/>
+                <field name="l10n_ir_payment_currency_id" string="ارز پرداخت"
+                       options="{'no_create': True}"/>
+                <field name="l10n_ir_exchange_rate" string="نرخ تبدیل"
+                       invisible="not l10n_ir_payment_currency_id"/>
+                <field name="l10n_ir_amount_irr" string="مبلغ ریالی"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- نمای لیست فاکتور با تاریخ شمسی -->
+    <record id="view_move_tree_inherit_l10n_ir" model="ir.ui.view">
+        <field name="name">account.move.tree.inherit.l10n_ir_orcest</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_date']" position="after">
+                <field name="l10n_ir_jalali_date" string="تاریخ شمسی" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- نمای فرم سطر فاکتور با فیلدهای ایرانی -->
+    <record id="view_move_line_form_inherit_l10n_ir" model="ir.ui.view">
+        <field name="name">account.move.line.form.inherit.l10n_ir_orcest</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_distribution']" position="after">
+                <field name="l10n_ir_cost_center" string="مرکز هزینه"/>
+                <field name="l10n_ir_project_code" string="کد پروژه"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ===== استان‌های ایران ===== -->
+        <!-- Iranian provinces as country states -->
+        <record id="state_tehran" model="res.country.state">
+            <field name="name">تهران</field>
+            <field name="code">THR</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_isfahan" model="res.country.state">
+            <field name="name">اصفهان</field>
+            <field name="code">ISF</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_fars" model="res.country.state">
+            <field name="name">فارس</field>
+            <field name="code">FRS</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_khorasan_razavi" model="res.country.state">
+            <field name="name">خراسان رضوی</field>
+            <field name="code">KRR</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_east_azarbaijan" model="res.country.state">
+            <field name="name">آذربایجان شرقی</field>
+            <field name="code">EAZ</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_west_azarbaijan" model="res.country.state">
+            <field name="name">آذربایجان غربی</field>
+            <field name="code">WAZ</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_khuzestan" model="res.country.state">
+            <field name="name">خوزستان</field>
+            <field name="code">KHZ</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_mazandaran" model="res.country.state">
+            <field name="name">مازندران</field>
+            <field name="code">MZN</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_alborz" model="res.country.state">
+            <field name="name">البرز</field>
+            <field name="code">ALB</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_gilan" model="res.country.state">
+            <field name="name">گیلان</field>
+            <field name="code">GIL</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_kermanshah" model="res.country.state">
+            <field name="name">کرمانشاه</field>
+            <field name="code">KSH</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_kerman" model="res.country.state">
+            <field name="name">کرمان</field>
+            <field name="code">KER</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_golestan" model="res.country.state">
+            <field name="name">گلستان</field>
+            <field name="code">GLS</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_hormozgan" model="res.country.state">
+            <field name="name">هرمزگان</field>
+            <field name="code">HRM</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_hamadan" model="res.country.state">
+            <field name="name">همدان</field>
+            <field name="code">HMD</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_markazi" model="res.country.state">
+            <field name="name">مرکزی</field>
+            <field name="code">MRK</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_bushehr" model="res.country.state">
+            <field name="name">بوشهر</field>
+            <field name="code">BSH</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_zanjan" model="res.country.state">
+            <field name="name">زنجان</field>
+            <field name="code">ZAN</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_lorestan" model="res.country.state">
+            <field name="name">لرستان</field>
+            <field name="code">LRS</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_ardabil" model="res.country.state">
+            <field name="name">اردبیل</field>
+            <field name="code">ARD</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_qom" model="res.country.state">
+            <field name="name">قم</field>
+            <field name="code">QOM</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_qazvin" model="res.country.state">
+            <field name="name">قزوین</field>
+            <field name="code">QAZ</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_semnan" model="res.country.state">
+            <field name="name">سمنان</field>
+            <field name="code">SMN</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_yazd" model="res.country.state">
+            <field name="name">یزد</field>
+            <field name="code">YZD</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_kurdistan" model="res.country.state">
+            <field name="name">کردستان</field>
+            <field name="code">KRD</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_north_khorasan" model="res.country.state">
+            <field name="name">خراسان شمالی</field>
+            <field name="code">KRN</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_south_khorasan" model="res.country.state">
+            <field name="name">خراسان جنوبی</field>
+            <field name="code">KRS</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_ilam" model="res.country.state">
+            <field name="name">ایلام</field>
+            <field name="code">ILM</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_kohgiluyeh" model="res.country.state">
+            <field name="name">کهگیلویه و بویراحمد</field>
+            <field name="code">KHG</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_chaharmahal" model="res.country.state">
+            <field name="name">چهارمحال و بختیاری</field>
+            <field name="code">CHB</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+        <record id="state_sistan" model="res.country.state">
+            <field name="name">سیستان و بلوچستان</field>
+            <field name="code">SBL</field>
+            <field name="country_id" ref="base.ir"/>
+        </record>
+
+    </data>
+</odoo>

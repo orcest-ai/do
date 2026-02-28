@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ===== ارز ایران ===== -->
+        <!-- Iranian Rial is already in base, but ensure it's active -->
+        <record id="base.IRR" model="res.currency">
+            <field name="name">IRR</field>
+            <field name="symbol">﷼</field>
+            <field name="rounding">1</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- Iranian Toman (informal but widely used) -->
+        <record id="currency_irt" model="res.currency">
+            <field name="name">IRT</field>
+            <field name="symbol">تومان</field>
+            <field name="rounding">1</field>
+            <field name="active">True</field>
+            <field name="position">after</field>
+        </record>
+
+        <!-- Activate common international currencies for multinational business -->
+        <record id="base.USD" model="res.currency">
+            <field name="active">True</field>
+        </record>
+        <record id="base.EUR" model="res.currency">
+            <field name="active">True</field>
+        </record>
+        <record id="base.GBP" model="res.currency">
+            <field name="active">True</field>
+        </record>
+        <record id="base.AED" model="res.currency">
+            <field name="active">True</field>
+        </record>
+        <record id="base.TRY" model="res.currency">
+            <field name="active">True</field>
+        </record>
+        <record id="base.CNY" model="res.currency">
+            <field name="active">True</field>
+        </record>
+
+        <!-- ===== زبان فارسی ===== -->
+        <!-- Persian Language Configuration -->
+        <function model="res.lang" name="_activate_lang">
+            <value>fa_IR</value>
+        </function>
+
+        <!-- ===== پارامترهای سیستم ===== -->
+        <record id="ir_config_calendar_type" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.calendar_type</field>
+            <field name="value">jalali</field>
+        </record>
+
+        <record id="ir_config_timezone" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.timezone</field>
+            <field name="value">Asia/Tehran</field>
+        </record>
+
+        <record id="ir_config_first_day" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.first_day_of_week</field>
+            <field name="value">6</field>
+        </record>
+
+        <record id="ir_config_persian_digits" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.use_persian_digits</field>
+            <field name="value">True</field>
+        </record>
+
+        <record id="ir_config_rainymodel_url" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.rainymodel_url</field>
+            <field name="value">https://rm.orcest.ai/v1</field>
+        </record>
+
+        <record id="ir_config_rainymodel_enabled" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.rainymodel_enabled</field>
+            <field name="value">True</field>
+        </record>
+
+        <record id="ir_config_rainymodel_model" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.rainymodel_model</field>
+            <field name="value">rainymodel/auto</field>
+        </record>
+
+        <record id="ir_config_sso_url" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.sso_url</field>
+            <field name="value">https://login.orcest.ai</field>
+        </record>
+
+        <record id="ir_config_sso_only_login" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.sso_only_login</field>
+            <field name="value">True</field>
+        </record>
+
+        <record id="ir_config_accounting_standard" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.accounting_standard</field>
+            <field name="value">iranian</field>
+        </record>
+
+        <record id="ir_config_multi_currency" model="ir.config_parameter">
+            <field name="key">l10n_ir_orcest.multi_currency</field>
+            <field name="value">True</field>
+        </record>
+
+    </data>
+</odoo>

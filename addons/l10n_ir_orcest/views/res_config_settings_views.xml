@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.l10n_ir_orcest</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@string='General Settings']" position="inside">
+
+                <!-- ===== تنظیمات بومی‌سازی ایران ===== -->
+                <block title="بومی‌سازی ایران" name="l10n_ir_localization">
+                    <setting id="l10n_ir_calendar" string="تقویم و زمان" help="تنظیمات تقویم هجری شمسی و منطقه زمانی">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="l10n_ir_calendar_type" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_calendar_type"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_timezone" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_timezone"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_first_day_of_week" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_first_day_of_week"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_use_persian_digits" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_use_persian_digits"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+
+                <!-- ===== SSO سازمانی ===== -->
+                <block title="احراز هویت سازمانی (SSO)" name="l10n_ir_sso">
+                    <setting id="l10n_ir_sso_settings" string="SSO سازمانی" help="اتصال به سامانه احراز هویت login.orcest.ai">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="l10n_ir_sso_enabled" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_sso_enabled"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_sso_enabled">
+                                <label for="l10n_ir_sso_url" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_sso_url"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_sso_enabled">
+                                <label for="l10n_ir_sso_client_id" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_sso_client_id"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_sso_enabled">
+                                <label for="l10n_ir_sso_client_secret" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_sso_client_secret" password="True"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_sso_enabled">
+                                <label for="l10n_ir_sso_only_login" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_sso_only_login"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+
+                <!-- ===== هوش مصنوعی ===== -->
+                <block title="هوش مصنوعی (RainyModel)" name="l10n_ir_ai">
+                    <setting id="l10n_ir_ai_settings" string="RainyModel AI" help="تنظیمات سرویس هوش مصنوعی rm.orcest.ai">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="l10n_ir_rainymodel_enabled" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_rainymodel_enabled"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_rainymodel_enabled">
+                                <label for="l10n_ir_rainymodel_url" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_rainymodel_url"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_rainymodel_enabled">
+                                <label for="l10n_ir_rainymodel_api_key" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_rainymodel_api_key" password="True"/>
+                            </div>
+                            <div class="row mt16" invisible="not l10n_ir_rainymodel_enabled">
+                                <label for="l10n_ir_rainymodel_model" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_rainymodel_model"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+
+                <!-- ===== حسابداری ===== -->
+                <block title="حسابداری ایرانی" name="l10n_ir_accounting">
+                    <setting id="l10n_ir_accounting_settings" string="تنظیمات حسابداری" help="استاندارد حسابداری و ارز پیش‌فرض">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="l10n_ir_accounting_standard" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_accounting_standard"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_default_currency" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_default_currency"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_multi_currency" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_multi_currency"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="l10n_ir_fiscal_year_start_month" class="col-lg-3 o_light_label"/>
+                                <field name="l10n_ir_fiscal_year_start_month"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,335 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#  * l10n_ir_orcest
+#
+# Translators:
+# Orcest AI Team <dev@orcest.ai>
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-28 00:00+0000\n"
+"PO-Revision-Date: 2026-02-28 00:00+0000\n"
+"Last-Translator: Orcest AI\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: l10n_ir_orcest
+msgid "Iran - Orcest Localization"
+msgstr "ایران - بومی‌سازی اورکست"
+
+#. module: l10n_ir_orcest
+msgid "Calendar Type"
+msgstr "نوع تقویم"
+
+#. module: l10n_ir_orcest
+msgid "Jalali (Solar Hijri)"
+msgstr "هجری شمسی (جلالی)"
+
+#. module: l10n_ir_orcest
+msgid "Gregorian"
+msgstr "میلادی"
+
+#. module: l10n_ir_orcest
+msgid "Timezone"
+msgstr "منطقه زمانی"
+
+#. module: l10n_ir_orcest
+msgid "Iran (Tehran)"
+msgstr "ایران (تهران)"
+
+#. module: l10n_ir_orcest
+msgid "First Day of Week"
+msgstr "اولین روز هفته"
+
+#. module: l10n_ir_orcest
+msgid "Saturday"
+msgstr "شنبه"
+
+#. module: l10n_ir_orcest
+msgid "Sunday"
+msgstr "یکشنبه"
+
+#. module: l10n_ir_orcest
+msgid "Monday"
+msgstr "دوشنبه"
+
+#. module: l10n_ir_orcest
+msgid "Tuesday"
+msgstr "سه‌شنبه"
+
+#. module: l10n_ir_orcest
+msgid "Wednesday"
+msgstr "چهارشنبه"
+
+#. module: l10n_ir_orcest
+msgid "Thursday"
+msgstr "پنجشنبه"
+
+#. module: l10n_ir_orcest
+msgid "Friday"
+msgstr "جمعه"
+
+#. module: l10n_ir_orcest
+msgid "Use Persian Digits"
+msgstr "استفاده از اعداد فارسی"
+
+#. module: l10n_ir_orcest
+msgid "Enable Organizational SSO"
+msgstr "فعال‌سازی SSO سازمانی"
+
+#. module: l10n_ir_orcest
+msgid "SSO Server URL"
+msgstr "آدرس سرور SSO"
+
+#. module: l10n_ir_orcest
+msgid "SSO Client ID"
+msgstr "شناسه کلاینت SSO"
+
+#. module: l10n_ir_orcest
+msgid "SSO Client Secret"
+msgstr "رمز کلاینت SSO"
+
+#. module: l10n_ir_orcest
+msgid "SSO Only Login"
+msgstr "فقط ورود از طریق SSO"
+
+#. module: l10n_ir_orcest
+msgid "Only users from login.orcest.ai can log in"
+msgstr "فقط کاربران login.orcest.ai اجازه ورود دارند"
+
+#. module: l10n_ir_orcest
+msgid "Enable AI"
+msgstr "فعال‌سازی هوش مصنوعی"
+
+#. module: l10n_ir_orcest
+msgid "RainyModel API URL"
+msgstr "آدرس API هوش مصنوعی"
+
+#. module: l10n_ir_orcest
+msgid "AI API Key"
+msgstr "کلید API هوش مصنوعی"
+
+#. module: l10n_ir_orcest
+msgid "AI Model"
+msgstr "مدل هوش مصنوعی"
+
+#. module: l10n_ir_orcest
+msgid "Auto (Recommended)"
+msgstr "خودکار (پیشنهادی)"
+
+#. module: l10n_ir_orcest
+msgid "Chat"
+msgstr "گفتگو"
+
+#. module: l10n_ir_orcest
+msgid "Code"
+msgstr "کدنویسی"
+
+#. module: l10n_ir_orcest
+msgid "Agent"
+msgstr "عامل هوشمند"
+
+#. module: l10n_ir_orcest
+msgid "Accounting Standard"
+msgstr "استاندارد حسابداری"
+
+#. module: l10n_ir_orcest
+msgid "Iranian Accounting Standard"
+msgstr "استاندارد حسابداری ایران"
+
+#. module: l10n_ir_orcest
+msgid "International Standards (IFRS)"
+msgstr "استانداردهای بین‌المللی (IFRS)"
+
+#. module: l10n_ir_orcest
+msgid "Default Currency"
+msgstr "واحد پول پیش‌فرض"
+
+#. module: l10n_ir_orcest
+msgid "Iranian Rial (IRR)"
+msgstr "ریال ایران (IRR)"
+
+#. module: l10n_ir_orcest
+msgid "Iranian Toman (IRT)"
+msgstr "تومان ایران (IRT)"
+
+#. module: l10n_ir_orcest
+msgid "Multi-Currency Support"
+msgstr "پشتیبانی چند ارزی"
+
+#. module: l10n_ir_orcest
+msgid "Fiscal Year Start Month"
+msgstr "شروع سال مالی"
+
+#. module: l10n_ir_orcest
+msgid "Jalali Date"
+msgstr "تاریخ شمسی"
+
+#. module: l10n_ir_orcest
+msgid "Jalali Due Date"
+msgstr "سررسید شمسی"
+
+#. module: l10n_ir_orcest
+msgid "Invoice Serial"
+msgstr "سریال فاکتور"
+
+#. module: l10n_ir_orcest
+msgid "Payment Currency"
+msgstr "ارز پرداخت"
+
+#. module: l10n_ir_orcest
+msgid "Exchange Rate"
+msgstr "نرخ تبدیل ارز"
+
+#. module: l10n_ir_orcest
+msgid "Amount in IRR"
+msgstr "مبلغ ریالی"
+
+#. module: l10n_ir_orcest
+msgid "Cost Center"
+msgstr "مرکز هزینه"
+
+#. module: l10n_ir_orcest
+msgid "Project Code"
+msgstr "کد پروژه"
+
+#. module: l10n_ir_orcest
+msgid "National Code"
+msgstr "کد ملی"
+
+#. module: l10n_ir_orcest
+msgid "National ID"
+msgstr "شناسه ملی"
+
+#. module: l10n_ir_orcest
+msgid "Economic Code"
+msgstr "کد اقتصادی"
+
+#. module: l10n_ir_orcest
+msgid "Postal Code"
+msgstr "کد پستی"
+
+#. module: l10n_ir_orcest
+msgid "Province"
+msgstr "استان"
+
+#. module: l10n_ir_orcest
+msgid "Registration Number"
+msgstr "شماره ثبت"
+
+#. module: l10n_ir_orcest
+msgid "Tax Office"
+msgstr "اداره مالیاتی"
+
+#. module: l10n_ir_orcest
+msgid "Branch Code"
+msgstr "کد شعبه"
+
+#. module: l10n_ir_orcest
+msgid "Company Type"
+msgstr "نوع شرکت"
+
+#. module: l10n_ir_orcest
+msgid "Private Joint Stock"
+msgstr "سهامی خاص"
+
+#. module: l10n_ir_orcest
+msgid "Public Joint Stock"
+msgstr "سهامی عام"
+
+#. module: l10n_ir_orcest
+msgid "Limited Liability"
+msgstr "مسئولیت محدود"
+
+#. module: l10n_ir_orcest
+msgid "Cooperative"
+msgstr "تعاونی"
+
+#. module: l10n_ir_orcest
+msgid "Foreign Branch"
+msgstr "شعبه خارجی"
+
+#. module: l10n_ir_orcest
+msgid "Representative"
+msgstr "نمایندگی"
+
+#. module: l10n_ir_orcest
+msgid "Sign in with Orcest Account"
+msgstr "ورود با حساب سازمانی اورکست"
+
+#. module: l10n_ir_orcest
+msgid "AI service is disabled. Please enable it from settings."
+msgstr "سرویس هوش مصنوعی غیرفعال است. لطفاً از تنظیمات فعال کنید."
+
+#. module: l10n_ir_orcest
+msgid "AI API key is not configured."
+msgstr "کلید API هوش مصنوعی تنظیم نشده است."
+
+#. module: l10n_ir_orcest
+msgid "AI server is not responding. Please try again."
+msgstr "سرور هوش مصنوعی پاسخ نمی‌دهد. لطفاً دوباره تلاش کنید."
+
+#. module: l10n_ir_orcest
+msgid "Cannot connect to AI server."
+msgstr "اتصال به سرور هوش مصنوعی برقرار نشد."
+
+#. module: l10n_ir_orcest
+msgid "The entered national code is not valid."
+msgstr "کد ملی وارد شده معتبر نیست."
+
+#. module: l10n_ir_orcest
+msgid "National ID must be 11 digits."
+msgstr "شناسه ملی باید ۱۱ رقم باشد."
+
+#. module: l10n_ir_orcest
+msgid "Farvardin"
+msgstr "فروردین"
+
+#. module: l10n_ir_orcest
+msgid "Ordibehesht"
+msgstr "اردیبهشت"
+
+#. module: l10n_ir_orcest
+msgid "Khordad"
+msgstr "خرداد"
+
+#. module: l10n_ir_orcest
+msgid "Tir"
+msgstr "تیر"
+
+#. module: l10n_ir_orcest
+msgid "Mordad"
+msgstr "مرداد"
+
+#. module: l10n_ir_orcest
+msgid "Shahrivar"
+msgstr "شهریور"
+
+#. module: l10n_ir_orcest
+msgid "Mehr"
+msgstr "مهر"
+
+#. module: l10n_ir_orcest
+msgid "Aban"
+msgstr "آبان"
+
+#. module: l10n_ir_orcest
+msgid "Azar"
+msgstr "آذر"
+
+#. module: l10n_ir_orcest
+msgid "Dey"
+msgstr "دی"
+
+#. module: l10n_ir_orcest
+msgid "Bahman"
+msgstr "بهمن"
+
+#. module: l10n_ir_orcest
+msgid "Esfand"
+msgstr "اسفند"

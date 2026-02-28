@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--
+            کد حساب‌های استاندارد حسابداری ایران
+            Iranian Standard Chart of Accounts
+            Based on Iranian Accounting Standards (استانداردهای حسابداری ایران)
+            Adapted for multinational business operations
+        -->
+
+        <!-- ===== گروه ۱: دارایی‌های جاری ===== -->
+        <!-- Group 1: Current Assets -->
+        <record id="chart_ir" model="account.chart.template">
+            <field name="name">کد حساب استاندارد ایران (اورکست)</field>
+            <field name="code_digits">6</field>
+            <field name="currency_id" ref="base.IRR"/>
+            <field name="country_id" ref="base.ir"/>
+            <field name="use_storno_accounting" eval="False"/>
+        </record>
+
+        <!-- 1100 - موجودی نقد و بانک -->
+        <record id="account_1101" model="account.account.template">
+            <field name="name">صندوق</field>
+            <field name="code">110100</field>
+            <field name="account_type">asset_cash</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1102" model="account.account.template">
+            <field name="name">صندوق ارزی</field>
+            <field name="code">110200</field>
+            <field name="account_type">asset_cash</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1103" model="account.account.template">
+            <field name="name">بانک‌ها - ریالی</field>
+            <field name="code">110300</field>
+            <field name="account_type">asset_bank</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1104" model="account.account.template">
+            <field name="name">بانک‌ها - ارزی</field>
+            <field name="code">110400</field>
+            <field name="account_type">asset_bank</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1105" model="account.account.template">
+            <field name="name">تنخواه‌گردان</field>
+            <field name="code">110500</field>
+            <field name="account_type">asset_cash</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- 1200 - سرمایه‌گذاری‌های کوتاه‌مدت -->
+        <record id="account_1201" model="account.account.template">
+            <field name="name">سرمایه‌گذاری‌های کوتاه‌مدت</field>
+            <field name="code">120100</field>
+            <field name="account_type">asset_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- 1300 - حساب‌های دریافتنی -->
+        <record id="account_1301" model="account.account.template">
+            <field name="name">حساب‌های دریافتنی تجاری</field>
+            <field name="code">130100</field>
+            <field name="account_type">asset_receivable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1302" model="account.account.template">
+            <field name="name">حساب‌های دریافتنی ارزی</field>
+            <field name="code">130200</field>
+            <field name="account_type">asset_receivable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1303" model="account.account.template">
+            <field name="name">اسناد دریافتنی</field>
+            <field name="code">130300</field>
+            <field name="account_type">asset_receivable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1304" model="account.account.template">
+            <field name="name">پیش‌پرداخت‌ها</field>
+            <field name="code">130400</field>
+            <field name="account_type">asset_prepayments</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1305" model="account.account.template">
+            <field name="name">سایر حساب‌های دریافتنی</field>
+            <field name="code">130500</field>
+            <field name="account_type">asset_receivable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- 1400 - موجودی مواد و کالا -->
+        <record id="account_1401" model="account.account.template">
+            <field name="name">موجودی مواد اولیه</field>
+            <field name="code">140100</field>
+            <field name="account_type">asset_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1402" model="account.account.template">
+            <field name="name">موجودی کالای ساخته‌شده</field>
+            <field name="code">140200</field>
+            <field name="account_type">asset_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1403" model="account.account.template">
+            <field name="name">موجودی کالای در جریان ساخت</field>
+            <field name="code">140300</field>
+            <field name="account_type">asset_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_1404" model="account.account.template">
+            <field name="name">موجودی کالای بازرگانی</field>
+            <field name="code">140400</field>
+            <field name="account_type">asset_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۲: دارایی‌های غیرجاری ===== -->
+        <!-- Group 2: Non-Current Assets -->
+        <record id="account_2101" model="account.account.template">
+            <field name="name">سرمایه‌گذاری‌های بلندمدت</field>
+            <field name="code">210100</field>
+            <field name="account_type">asset_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2201" model="account.account.template">
+            <field name="name">دارایی‌های ثابت مشهود</field>
+            <field name="code">220100</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2202" model="account.account.template">
+            <field name="name">زمین</field>
+            <field name="code">220200</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2203" model="account.account.template">
+            <field name="name">ساختمان</field>
+            <field name="code">220300</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2204" model="account.account.template">
+            <field name="name">ماشین‌آلات و تجهیزات</field>
+            <field name="code">220400</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2205" model="account.account.template">
+            <field name="name">وسایل نقلیه</field>
+            <field name="code">220500</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2206" model="account.account.template">
+            <field name="name">اثاثه و منصوبات</field>
+            <field name="code">220600</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2207" model="account.account.template">
+            <field name="name">استهلاک انباشته دارایی‌های ثابت</field>
+            <field name="code">220700</field>
+            <field name="account_type">asset_fixed</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2301" model="account.account.template">
+            <field name="name">دارایی‌های نامشهود</field>
+            <field name="code">230100</field>
+            <field name="account_type">asset_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2302" model="account.account.template">
+            <field name="name">سرقفلی</field>
+            <field name="code">230200</field>
+            <field name="account_type">asset_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_2303" model="account.account.template">
+            <field name="name">نرم‌افزارهای رایانه‌ای</field>
+            <field name="code">230300</field>
+            <field name="account_type">asset_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۳: بدهی‌های جاری ===== -->
+        <!-- Group 3: Current Liabilities -->
+        <record id="account_3101" model="account.account.template">
+            <field name="name">حساب‌های پرداختنی تجاری</field>
+            <field name="code">310100</field>
+            <field name="account_type">liability_payable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3102" model="account.account.template">
+            <field name="name">حساب‌های پرداختنی ارزی</field>
+            <field name="code">310200</field>
+            <field name="account_type">liability_payable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3103" model="account.account.template">
+            <field name="name">اسناد پرداختنی</field>
+            <field name="code">310300</field>
+            <field name="account_type">liability_payable</field>
+            <field name="reconcile" eval="True"/>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3104" model="account.account.template">
+            <field name="name">پیش‌دریافت‌ها</field>
+            <field name="code">310400</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3105" model="account.account.template">
+            <field name="name">مالیات بر ارزش افزوده پرداختنی</field>
+            <field name="code">310500</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3106" model="account.account.template">
+            <field name="name">مالیات بر درآمد پرداختنی</field>
+            <field name="code">310600</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3107" model="account.account.template">
+            <field name="name">بیمه تأمین اجتماعی پرداختنی</field>
+            <field name="code">310700</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3108" model="account.account.template">
+            <field name="name">حقوق و دستمزد پرداختنی</field>
+            <field name="code">310800</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3109" model="account.account.template">
+            <field name="name">ذخیره مالیات</field>
+            <field name="code">310900</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_3110" model="account.account.template">
+            <field name="name">سود سهام پرداختنی</field>
+            <field name="code">311000</field>
+            <field name="account_type">liability_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۴: بدهی‌های غیرجاری ===== -->
+        <!-- Group 4: Non-Current Liabilities -->
+        <record id="account_4101" model="account.account.template">
+            <field name="name">تسهیلات مالی بلندمدت</field>
+            <field name="code">410100</field>
+            <field name="account_type">liability_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_4102" model="account.account.template">
+            <field name="name">ذخیره مزایای پایان خدمت کارکنان</field>
+            <field name="code">410200</field>
+            <field name="account_type">liability_non_current</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۵: حقوق صاحبان سهام ===== -->
+        <!-- Group 5: Equity -->
+        <record id="account_5101" model="account.account.template">
+            <field name="name">سرمایه</field>
+            <field name="code">510100</field>
+            <field name="account_type">equity</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_5102" model="account.account.template">
+            <field name="name">اندوخته قانونی</field>
+            <field name="code">510200</field>
+            <field name="account_type">equity</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_5103" model="account.account.template">
+            <field name="name">اندوخته اختیاری</field>
+            <field name="code">510300</field>
+            <field name="account_type">equity</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_5104" model="account.account.template">
+            <field name="name">سود (زیان) انباشته</field>
+            <field name="code">510400</field>
+            <field name="account_type">equity_unaffected</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_5105" model="account.account.template">
+            <field name="name">مازاد تجدید ارزیابی</field>
+            <field name="code">510500</field>
+            <field name="account_type">equity</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_5106" model="account.account.template">
+            <field name="name">تفاوت تبدیل ارز عملیات خارجی</field>
+            <field name="code">510600</field>
+            <field name="account_type">equity</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۶: درآمدها ===== -->
+        <!-- Group 6: Revenue -->
+        <record id="account_6101" model="account.account.template">
+            <field name="name">درآمد فروش کالا</field>
+            <field name="code">610100</field>
+            <field name="account_type">income</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_6102" model="account.account.template">
+            <field name="name">درآمد ارائه خدمات</field>
+            <field name="code">610200</field>
+            <field name="account_type">income</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_6103" model="account.account.template">
+            <field name="name">درآمد صادرات</field>
+            <field name="code">610300</field>
+            <field name="account_type">income</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_6104" model="account.account.template">
+            <field name="name">برگشت از فروش و تخفیفات</field>
+            <field name="code">610400</field>
+            <field name="account_type">income</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_6105" model="account.account.template">
+            <field name="name">سایر درآمدهای عملیاتی</field>
+            <field name="code">610500</field>
+            <field name="account_type">income_other</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_6106" model="account.account.template">
+            <field name="name">درآمد سود تسعیر ارز</field>
+            <field name="code">610600</field>
+            <field name="account_type">income_other</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۷: بهای تمام‌شده ===== -->
+        <!-- Group 7: Cost of Goods Sold -->
+        <record id="account_7101" model="account.account.template">
+            <field name="name">بهای تمام‌شده کالای فروش رفته</field>
+            <field name="code">710100</field>
+            <field name="account_type">expense_direct_cost</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_7102" model="account.account.template">
+            <field name="name">بهای تمام‌شده خدمات ارائه شده</field>
+            <field name="code">710200</field>
+            <field name="account_type">expense_direct_cost</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_7103" model="account.account.template">
+            <field name="name">هزینه مواد مستقیم</field>
+            <field name="code">710300</field>
+            <field name="account_type">expense_direct_cost</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_7104" model="account.account.template">
+            <field name="name">هزینه دستمزد مستقیم</field>
+            <field name="code">710400</field>
+            <field name="account_type">expense_direct_cost</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_7105" model="account.account.template">
+            <field name="name">سربار تولید</field>
+            <field name="code">710500</field>
+            <field name="account_type">expense_direct_cost</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۸: هزینه‌های عملیاتی ===== -->
+        <!-- Group 8: Operating Expenses -->
+        <record id="account_8101" model="account.account.template">
+            <field name="name">هزینه‌های اداری و عمومی</field>
+            <field name="code">810100</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8102" model="account.account.template">
+            <field name="name">هزینه حقوق و دستمزد</field>
+            <field name="code">810200</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8103" model="account.account.template">
+            <field name="name">هزینه بیمه تأمین اجتماعی</field>
+            <field name="code">810300</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8104" model="account.account.template">
+            <field name="name">هزینه اجاره</field>
+            <field name="code">810400</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8105" model="account.account.template">
+            <field name="name">هزینه استهلاک</field>
+            <field name="code">810500</field>
+            <field name="account_type">expense_depreciation</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8106" model="account.account.template">
+            <field name="name">هزینه‌های توزیع و فروش</field>
+            <field name="code">810600</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8107" model="account.account.template">
+            <field name="name">هزینه‌های تحقیق و توسعه</field>
+            <field name="code">810700</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8108" model="account.account.template">
+            <field name="name">هزینه‌های مالی</field>
+            <field name="code">810800</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8109" model="account.account.template">
+            <field name="name">زیان تسعیر ارز</field>
+            <field name="code">810900</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8110" model="account.account.template">
+            <field name="name">هزینه مالیات بر درآمد</field>
+            <field name="code">811000</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_8111" model="account.account.template">
+            <field name="name">هزینه کارمزد کارت اعتباری</field>
+            <field name="code">811100</field>
+            <field name="account_type">expense</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+        <!-- ===== گروه ۹: حساب‌های انتظامی ===== -->
+        <!-- Group 9: Memorandum Accounts -->
+        <record id="account_9101" model="account.account.template">
+            <field name="name">حساب‌های انتظامی بدهکار</field>
+            <field name="code">910100</field>
+            <field name="account_type">off_balance</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+        <record id="account_9102" model="account.account.template">
+            <field name="name">حساب‌های انتظامی بستانکار</field>
+            <field name="code">910200</field>
+            <field name="account_type">off_balance</field>
+            <field name="chart_template_id" ref="chart_ir"/>
+        </record>
+
+    </data>
+</odoo>
